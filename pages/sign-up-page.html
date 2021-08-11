@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create your account</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -17,7 +24,7 @@
     <!---------------main section------------------->
     <div class="first-container mx-auto my-auto">
         <div class="content">
-            <form class="form-content">
+            <form action="#" onsubmit="return validation()" class="form-content">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-head">
@@ -36,20 +43,25 @@
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <div class="form-outline">
-                                        <input type="text" id="form1" class="form-control" />
-                                        <label class="form-label" for="form1">First name</label>
+                                        <input type="text" id="user1" class="form-control" autocomplete="off" />
+                                        <label class="form-label" for="user1">First name</label>
+                                        <span id="firstname" class="text-danger font-weight-bold"> </span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-outline">
-                                        <input type="text" id="form2" class="form-control" />
-                                        <label class="form-label" for="form2">Last name</label>
+                                        <input type="text" id="user2" class="form-control" />
+                                        <label class="form-label" for="user2">Last name</label>
+                                        <span id="lastname" class="text-danger font-weight-bold"> </span>
+                                 
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12">
                                     <div class="form-outline username">
-                                        <input type="email" id="form3" class="form-control" />
-                                        <label class="form-label" for="form3">Username</label>
+                                        <input type="email" id="username1" class="form-control" />
+                                        <label class="form-label" for="username1">Username</label>
+                                        <span id="username" class="text-danger font-weight-bold"> </span>
+                                 
                                     </div>
                                     <div class="form-text">
                                         You can use letters, numbers &amp; periods
@@ -65,14 +77,18 @@
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <div class="form-outline">
-                                        <input type="password" id="form3" class="form-control" />
-                                        <label class="form-label" for="form3">password</label>
+                                        <input type="password" id="password" class="form-control" />
+                                        <label class="form-label" for="password">password</label>
+                                        <span id="password" class="text-danger font-weight-bold"> </span>
+                                 
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-outline ">
-                                        <input type="password" id="form3" class="form-control" />
-                                        <label class="form-label" for="form3">confirm</label>
+                                        <input type="password" id="password" class="form-control" />
+                                        <label class="form-label" for="password">confirm</label>
+                                        <span id="password" class="text-danger font-weight-bold"> </span>
+                                 
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +128,8 @@
     </form>
     </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script src="../js/sign-up-page.js"></script>
 </body>
 
 </html>
