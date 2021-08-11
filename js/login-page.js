@@ -1,9 +1,4 @@
-   
-  /*  
-    form1.addEventListener("change", validation); 
-    user2.addEventListener("change", validation); 
-    form3.addEventListener("change", validation); 
-*/
+
 function validation(){
 
     var username = document.getElementById('username').value;
@@ -11,7 +6,7 @@ function validation(){
     
 
     if(username == ""){
-        document.getElementById('username').innerHTML =" ** Please fill the email id field";
+        document.getElementById('username').innerHTML ="** Please fill this field";
         return false;
     }
     if(username.indexOf('@') <= 0 ){
@@ -23,16 +18,7 @@ function validation(){
         document.getElementById('username').innerHTML =" ** . Invalid Position";
         return false;
     }
-    /*
-    if((user.length <= 2) || (user.length > 20)) {
-        document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
-        return false;	
-    }
-    if(!isNaN(user)){
-        document.getElementById('username').innerHTML =" ** only characters are allowed";
-        return false;
-    }
-    */
+   
    if(pass == ""){
         document.getElementById('password').innerHTML =" ** Please fill the password field";
         return false;
