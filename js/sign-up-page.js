@@ -1,16 +1,10 @@
-   
-  /*  
-    form1.addEventListener("change", validation); 
-    user2.addEventListener("change", validation); 
-    form3.addEventListener("change", validation); 
-*/
 function validation(){
 
     var firstname = document.getElementById('user1').value;
     var lastname = document.getElementById('user2').value;
     var username = document.getElementById('username1').value;
     var pass = document.getElementById('password1').value;
-    var confirmpass = document.getElementById('password').value;
+    var confirmpass = document.getElementById('password2').value;
 
     if(firstname == ""){
         document.getElementById('firstname').innerHTML =" ** Please fill the first name field";
@@ -57,19 +51,19 @@ function validation(){
         document.getElementById('password').innerHTML =" ** Please fill the password field";
         return false;
     }
-    /*
+    
     if((pass.length <= 5) || (pass.length > 20)) {
         document.getElementById('password').innerHTML =" ** Passwords lenght must be between  5 and 20";
         return false;	
     }
-    */
+    
     if(pass!=confirmpass){
         document.getElementById('password').innerHTML =" ** Password does not match the confirm password";
         return false;
     }
     
     if(confirmpass == ""){
-        document.getElementById('password').innerHTML =" ** Please fill the confirmpassword field";
+        document.getElementById('cpassword').innerHTML =" ** Please fill the confirmpassword field";
         return false;
     }
     
