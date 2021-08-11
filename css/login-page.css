@@ -16,6 +16,9 @@ body{
     border: 1px solid #e1e1e1;
     text-align: center;
 }
+.fundoo-tittle{
+    font-size: 25px;
+}
 .maindiv .fields{
     display: inline-block;
     height: 90px;
