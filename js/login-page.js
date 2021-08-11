@@ -1,7 +1,7 @@
 
 function validation(){
 
-    var username = document.getElementById('username').value;
+    var username = document.getElementById('username1').value;
     var pass = document.getElementById('password').value;
     
 

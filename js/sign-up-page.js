@@ -8,8 +8,8 @@ function validation(){
 
     var firstname = document.getElementById('user1').value;
     var lastname = document.getElementById('user2').value;
-    var username = document.getElementById('username').value;
-    var pass = document.getElementById('password').value;
+    var username = document.getElementById('username1').value;
+    var pass = document.getElementById('password1').value;
     var confirmpass = document.getElementById('password').value;
 
     if(firstname == ""){
@@ -23,18 +23,19 @@ function validation(){
     }
 
     if(username == ""){
-        document.getElementById('username').innerHTML =" ** Please fill the email id field";
+        document.getElementById('username').innerHTML =" ** Please fill the username field";
         return false;
     }
+    /*
     if(username.indexOf('@') <= 0 ){
         document.getElementById('username').innerHTML =" ** @ Invalid Position";
         return false;
     }
     
-    if((username.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+    if((username.charAt(emails.length-4)!='.') && (username.charAt(username.length-3)!='.')){
         document.getElementById('username').innerHTML =" ** . Invalid Position";
         return false;
-    }
+    }*/
     /*
     if((user.length <= 2) || (user.length > 20)) {
         document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
@@ -46,22 +47,23 @@ function validation(){
     }
     */
    if(pass == ""){
-        document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+        document.getElementById('password').innerHTML =" ** Please fill the password field";
         return false;
     }
+    /*
     if((pass.length <= 5) || (pass.length > 20)) {
-        document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+        document.getElementById('password').innerHTML =" ** Passwords lenght must be between  5 and 20";
         return false;	
     }
     
-    
+    */
     if(pass!=confirmpass){
-        document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+        document.getElementById('password').innerHTML =" ** Password does not match the confirm password";
         return false;
     }
     
     if(confirmpass == ""){
-        document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+        document.getElementById('password').innerHTML =" ** Please fill the confirmpassword field";
         return false;
     }
     
