@@ -17,6 +17,10 @@ body{
 .fundoo-tittle{
     font-size: 26px;
 }
+
+.form-content{
+    width: 100%;
+}
 .content{
     padding: 48px 40px 25px;
     border-style: solid;
@@ -28,9 +32,6 @@ body{
     flex-direction: row;
     overflow: hidden;
     
-}
-.form-content{
-    width: 100%;
 }
 .title{
     font-size:24px;
