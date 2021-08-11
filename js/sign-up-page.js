@@ -42,7 +42,7 @@ function validation(){
     if((username.charAt(emails.length-4)!='.') && (username.charAt(username.length-3)!='.')){
         document.getElementById('username').innerHTML =" ** . Invalid Position";
         return false;
-    /*
+    }
     
     if((username.length <= 2) || (username.length > 20)) {
         document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
@@ -52,7 +52,7 @@ function validation(){
         document.getElementById('username').innerHTML =" ** only characters are allowed";
         return false;
     }
-    */
+    
    if(pass == ""){
         document.getElementById('password').innerHTML =" ** Please fill the password field";
         return false;
