@@ -20,13 +20,12 @@ function validation(){
         document.getElementById('firstname').innerHTML =" ** only characters are allowed";
         return false;
     }
-    
-    if(lastname == ""){
+    if(lastname ==""){
         document.getElementById('lastname').innerHTML =" ** Please fill the lastname field";
         return false;
     }
     if(!isNaN(lastname)){
-        document.getElementById('lastname').innerHTML =" ** only characters are allowed";
+        document.getElementById('lastname').innerHTML =" ** only characters are allowed..";
         return false;
     }
 
