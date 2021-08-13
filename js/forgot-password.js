@@ -14,7 +14,7 @@ const validate = () => {
   
     //validate username
     if(firstname === ""){
-       // alert('first name canrt blank');
+      
        setErrorMsg(firstNameElement,'firstname can not be blank');
       firstNameElement.style.border = "3px solid red";
        firstNameElement.focus();
