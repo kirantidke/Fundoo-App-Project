@@ -25,7 +25,7 @@ const validate = () => {
     }
 
     
-
+//error method
     function setErrorMsg(input, errormsgs){
         const formOutline = input.parentElement;
         const small = formOutline.querySelector('small');
