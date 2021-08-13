@@ -14,13 +14,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-.fundoo-tittle{
-    font-size: 26px;
-}
-
-.form-content{
-    width: 100%;
-}
 .content{
     padding: 48px 40px 25px;
     border-style: solid;
@@ -28,49 +21,56 @@ body{
     border-color: rgb(187, 185, 185);
     border-radius: 10px;
     width: 30rem;
-    height: 30rem;
     display: flex;
     flex-direction: row;
     overflow: hidden;
     
 }
+
+.form-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-content{
+    width: 100%;
+}
 .title{
     font-size:24px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
-.title-main{
-    font-size: 14px;
+.fundoo-tittle{
+    font-size: 25px;
 }
+/*
 .text-field{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-}
+}*/
 .username{
     margin-top: 10px;
 }
-.username::before{
-    content: '@gmail.com';
-    position: absolute;
-    right: 0.75em;
-    top:50%;
-    transform: translateY(-50%);
-}
 .username input.form-control{
-    padding-right: 100px;
+    padding-right: 186px;
+    padding-bottom: 40px;
 }
 .button2{
     background-color: transparent;
     color: #1a73e8;
     box-shadow: none;
     transition:  0.3s ease-in;
+    text-transform: none;
 }
 .button2:hover{
     background-color:rgba(26, 115, 232, 0.281) ;
     color: #1a73e8;
     box-shadow: none;
+}
+.right-button{
+    padding-left: 30%;
 }
 .password{
     margin-top: 10%;
@@ -83,23 +83,18 @@ body{
     font-size: 10px;
 } 
 .sign-in{
-    margin:20% 0 25%;
-    align-items: center;
+    margin: 7% 0 11%;
 }
 .sign{
     font-size: 14px;
     color: rgb(41, 41, 223);
 }
 .picture{
-    width: 150px;
-    height: 50px;
+    width:244px;
+    height: 244px;
 }
 .form-outline input{
     align-items: center;
-}
-.form-outline input:focus{
-    outline: 0;
-    border-color: #777;
 }
 .form-outline.success input{
     border-color: #2ecc71;

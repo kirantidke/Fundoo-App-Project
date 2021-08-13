@@ -46,6 +46,7 @@ body{
     justify-content: space-between;
 
 }
+.form
 .username{
     margin-top: 10px;
 }
@@ -90,4 +91,24 @@ body{
 .picture{
     width:244px;
     height: 244px;
+}
+.form-outline input:focus{
+    outline: 0;
+    border-color: #777;
+}
+.form-outline.success input{
+    border-color: #2ecc71;
+}
+.form-outline.error input{
+    border-color: red;
+}
+.form-outline small{
+    color: red;
+    position: absolute;
+    bottom: 0p;
+    left: 0;
+    visibility: hidden;
+    }
+.form-outline.error small{
+visibility: visible;
 }
