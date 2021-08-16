@@ -82,6 +82,8 @@ form.addEventListener('onclick', (event) => {
 
     validate();
     const formData = new FormData(this);
+       
+    //fetch method for api
     fetch('sign-up-page.html',{
         method: 'post',
         body:formData}).then(function (response){
