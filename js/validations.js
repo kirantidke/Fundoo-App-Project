@@ -79,9 +79,21 @@ var confirmPassElement = document.getElementById('password2');
 
 form.addEventListener('onclick', (event) => {
     event.preventDefault();
-    validate();
 
-})
+    validate();
+    const formData = new FormData(this);
+    fetch('sign-up-page.html',{
+        method: 'post',
+        body:formData}).then(function (response){
+    return response.text();
+    
+}).then(function(text){
+    console.log(text);
+}).catch(function(error){
+    console.error(error);
+});
+});
+
 //define validate function
 const validate = () => {
      var firstname = firstNameElement.value.trim();
@@ -147,10 +159,11 @@ const validate = () => {
         small.innerText = errormsgs;
 
     }
-    function setSuccessMsg(input){
+   /* function setSuccessMsg(input){
         const formOutline = input.parentElement;
         formOutline.className = "form-outline success";
        
-    }
+    }*/
+    
     
 }

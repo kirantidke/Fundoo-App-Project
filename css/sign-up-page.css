@@ -99,8 +99,11 @@ body{
 .form-outline.success input{
     border-color: #2ecc71;
 }
-.form-outline.error input{
+.error{
     border-color: red;
+}
+.form-outline.error input{
+   
 }
 .form-outline small{
     color: red;
