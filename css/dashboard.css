@@ -1,7 +1,3 @@
-/* 
-⚠️
-colors could be added to tailwind.js config file 
-*/
 
 .bg-brand{
   background: burlywood;
@@ -11,6 +7,9 @@ colors could be added to tailwind.js config file
 }
 .hover\:bg-dark:hover{
   background: rgba(0,0,0,.08);
+}
+h2{
+  color: white;
 }
 @media (min-width: 500px){
   
