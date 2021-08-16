@@ -142,7 +142,8 @@ const validate = () => {
         setErrorMsg(confirmPassElement,'password can not be blank');
         confirmPassElement.style.border = "3px solid red";
         confirmPassElement.focus();
-    }else{
+    }
+    else{
         setSuccessMsg(password2);
     }
 
