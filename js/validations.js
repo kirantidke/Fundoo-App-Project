@@ -76,7 +76,7 @@ var userNameElement = document.getElementById('username');
 var passElement = document.getElementById('password1');
 var confirmPassElement = document.getElementById('password2');
 
-
+/*
 form.addEventListener('onclick', (event) => {
     event.preventDefault();
 
@@ -84,7 +84,7 @@ form.addEventListener('onclick', (event) => {
     const formData = new FormData(this);
        
     //fetch method for api
-    fetch('sign-up-page.html',{
+   / fetch('sign-up-page.html',{
         method: 'post',
         body:formData}).then(function (response){
     return response.text();
@@ -94,10 +94,24 @@ form.addEventListener('onclick', (event) => {
 }).catch(function(error){
     console.error(error);
 });
+});*/
+const fetchnew = (url,methodnew) =>{
+    //cont baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
+    fetch(baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/"+url),{
+        method:methodnew ,
+        body:formData}.then(function (response){
+    return response.text();
+    
+}).then(function(text){
+    console.log(text);
+}).catch(function(error){
+    console.error(error);
 });
-
+}
 //define validate function
-const validate = () => {
+const validate = (url,method) => {
+    
+    var error = false;
      var firstname = firstNameElement.value.trim();
      var lastname = lastNameElement.value.trim();
     var username = userNameElement.value.trim();
@@ -110,7 +124,9 @@ const validate = () => {
        // alert('first name canrt blank');
        setErrorMsg(firstNameElement,'firstname can not be blank');
       firstNameElement.style.border = "3px solid red";
+      error = true;
        firstNameElement.focus();
+       
       // return false;
 
     }else{
@@ -120,7 +136,9 @@ const validate = () => {
     if(lastname === ""){
         setErrorMsg(lastNameElement,'lastname can not be blank');
         lastNameElement.style.border = "3px solid red";
+        error = true;
         lastNameElement.focus();
+       
     }else{
         setSuccessMsg(lastname);
     }
@@ -167,6 +185,10 @@ const validate = () => {
         formOutline.className = "form-outline success";
        
     }*/
-    
+    if(!error){
+        fetch(url,method)
+    }
+   
     
 }
+//api call

@@ -24,7 +24,7 @@
     <!---------------main section------------------->
     <div class="first-container mx-auto my-auto">
         <div class="content">
-           <form action="#" onsubmit="return validate()" id="form" class="form-content">
+           <form action="#"  id="form" class="form-content">
                
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -118,7 +118,8 @@
                                     <button type="button" class="btn button2">Sign in instead</button>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input id="btn-submit" class="btn btn-primary" type="submit" value="Next">
+                                    <input id="btn-submit" class="btn btn-primary" type="submit" onclick="
+                                    validate('user/userSignUp','post')" value="Next">
                                 </div>
                             </div>
                         </div>
@@ -138,6 +139,8 @@
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
     <script src="../js/validations.js"></script>
+    <script src="../services/axios.js"></script>
+    <script src="../services/userservice.js"></script>
     
 </body>
 

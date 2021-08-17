@@ -1,149 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <title>Dashboard</title>
-</head>
-<body>
-    <div class="app min-h-screen bg-grey-lighter font-sans flex flex-col">
-<!---------------------header----------------------------->
-        <div class="header-wrap bg-brand">
-      
-          <header class="px-2 py-1 sm:px-4 sm:py-2 flex items-center">
-      
-            <button class="hamburger hover:bg-dark rounded-full px-3 flex items-center h-12">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            </button>
-            <img class="header-logo" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
-            <h2 class="header-title">Keep</h2>
+<html lang="sr" dir="ltr">
+  <head>
+      <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Raakado Technologies">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
     
-      
-            <div class="wrap ml-auto md:ml-8 flex items-end md:justify-between md:flex-1">
-      
-              <form class="search-wrap md:flex-1 md:max-w-md">
-                <div class="search flex items-center bg-transparent md:bg-dark rounded overflow-hidden">
-      
-                  <button class="text-yellow-darker hover:text-black px-3 flex items-center flex-no-shrink h-12 text-sm px-4 rounded" type="button">
-                    <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
-                    </svg>
-                  </button>
-      
-                  <input class="hidden md:flex appearance-none bg-transparent border-none w-full h-12 rounded px-3" type="text" placeholder="Search..."
-                    aria-label="Search" width="60">
-      
-                  <button class="search__clean hidden md:flex flex-no-shrink h-12 px-4 rounded" type="button">
-                    <svg class="fill-current" focusable="false" height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                      <path d="M0 0h24v24H0z" fill="none"></path>
-                    </svg>
-                  </button>
-                </div>
-              </form>
-      
-      
-              <div class="tools md:ml-8 flex">
-                <button class="tools__refresh px-3 flex items-center h-12 text-yellow-darker hover:text-black">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw">
-                    <polyline points="1 4 1 10 7 10" />
-                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
-                  </svg>
-                </button>
-                <button class="tools__viewtype px-3 hidden sm:flex items-center h-12 text-yellow-darker hover:text-black">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 24" fill="currentColor" class="feather feather-server">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                    <rect x="2" y="12" width="20" height="8" rx="2" ry="2" />
-                  </svg>
-                </button>
-              </div>
-      
-            </div>
-      
-            <div class="auth flex items-center lg:ml-8">
-              <button class="auth__apps hidden lg:flex px-3 items-center h-12 text-yellow-darker hover:text-black">
-                <svg class="fill-current" width="18" viewBox="0 0 896 896">
-                  <path d="M224 0H32C12.8 0 0 12.8 0 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V32c0-19.2-12.8-32-32-32zm0 320H32c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V352c0-19.2-12.8-32-32-32zM544 0H352c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V32c0-19.2-12.8-32-32-32zm0 320H352c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V352c0-19.2-12.8-32-32-32zM864 0H672c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V32c0-19.2-12.8-32-32-32zm0 320H672c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V352c0-19.2-12.8-32-32-32zM224 640H32c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V672c0-19.2-12.8-32-32-32zm320 0H352c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V672c0-19.2-12.8-32-32-32zm320 0H672c-19.2 0-32 12.8-32 32v192c0 19.2 12.8 32 32 32h192c19.2 0 32-12.8 32-32V672c0-19.2-12.8-32-32-32z"
-                  />
-                </svg>
-              </button>
-              <button class="auth__notifications hidden lg:flex px-3 items-center h-12 text-yellow-darker hover:text-black">
-                <svg class="fill-current" width="18" viewBox="0 0 1052 1200">
-                  <path d="M479 0h94q20 0 29 10.5t3 29.5l-18 37q83 19 144 82.5T807 300l63 327 118 173h17q19 0 33 14.5t14 35-13 40.5-31 27q-8 4-23 9.5T920 946t-103 25-132.5 20-158.5 9q-57 0-115-5t-104-12-88.5-15.5T145 950t-54.5-16T55 922l-11-4q-18-8-31-28T0 849.5t14-35T47 800h17l118-173 63-327q15-77 76-140t144-83l-18-32q-6-19 3.5-32T479 0zm-55 1090q50 6 102 6 53 0 102-6-12 49-39.5 79.5T526 1200t-63-30.5-39-79.5z"
-                  />
-                </svg>
-              </button>
-              <div class="auth__account w-8 mx-3 cursor-pointer">
-                <img class="" src="https://avatars3.githubusercontent.com/u/342666?s=460&v=4" alt="" width="30" height="30">
-              </div>
-            </div>
-      
-          </header>
-      
-        </div><!--#Header-->
-      
-        <div class="viewport-things p-8">
-        
-          <div class="mb-8">
-            <h3 class="text-grey-darkest leading-normal"> ⚠️ Notes</h3>
-           
-          </div>
-          <div class="mb-8">
-            <h3 class="text-grey-darkest leading-normal"> ⚠️ Reminder</h3>
-           
-          </div>
-          <div class="mb-8">
-            <h3 class="text-grey-darkest leading-normal"> ⚠️ Edit lable</h3>
-           
-          </div>
-          <div class="mb-8">
-            <h3 class="text-grey-darkest leading-normal"> ⚠️ Archieve</h3>
-           
-          </div>
-          <div class="mb-8">
-            <h3 class="text-grey-darkest leading-normal"> ⚠️ Trash</h3>
-           
-          </div>
-          
-          <div id="form-container">
-            <form id="form" autocomplete="off">
-               <input id="note-title" placeholder="Title" type="text">
-               <input id="note-text" placeholder="Take a note..." type="text">
-               <div id="form-buttons">
-                  <button type="submit" id="submit-button">Submit</button>
-                  <button type="button" id="form-close-button">Close</button>
-               </div>
-            </form>
+    <script type="text/javascript" src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
+  </head>
+  <body>
+
+ <div id='main'>
+     
+ <!-- Sidebar -->
+        <div id="Sidebar11" class="sidebar1">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>
+          <a id="first" href="#"><i class="fas fa-home"></i>Notes</a>
+          <a href=""><i class="fas fa-fire"></i>Reminder</a>
+          <a href=""><i class="fas fa-fire"></i>Reminder</a>
+          <a href="#"><i class="fas fa-history"></i>Edit lable</a>
+          <a href="#"><i class="fas fa-history"></i>Archieve</a>
+          <a href="#"><i class="fas fa-history"></i>Trash</a>
+         <!---- <a id="last" href="#"><i class="fas fa-plus"></i> </a>
+          <a id="last" href="#"><i class="fas fa-plus"></i>Trash </a>-->
         </div>
-        <div id="notes"></div>
-        <div id="placeholder">
-            <img id="placeholder-logo" src="https://icon.now.sh/lightbulb_outline">
-            <p id="placeholder-text">Notes you add appear here</p>
+        
+        <!-- Navbar -->
+    <div class="navbar">
+
+      <div class="icons">
+          
+          <div class="icons-hover">
+
+        
+<a onclick="openNotifications()" href="javascript:void(0)"><i class="fas fa-bell"></i></a>
+
+<div class="tooltip">
+<a onclick="openProfile()"><i class="fas fa-user"></i></a>
+<span class="tooltiptext">Profile</span>
+</div>
+
+</div>
+
+<div class="profilenot">
+              <div id="nottifications">
+        <div class="nottitle">
+          <p>Notifications</p>
         </div>
 
-        <!-- tooltip -->
-        <div id="color-tooltip">
-          <div class="color-option" data-color="#fff" id="white"></div>
-          <div class="color-option" data-color="#d7aefb" id="purple"></div>
-          <div class="color-option" data-color="#fbbc04" id="orange"></div>
-          <div class="color-option" data-color="#a7ffeb" id="teal"></div>
+        <div class="notifications">
+            <img class="header-logo" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
+            <h2 class="header-title">Keep</h2>            
+            
         </div>
-          
-        </div><!--#Viewport Things-->
-      <!--------
-        <footer class="mt-auto px-8 py-4 text-center">
-          Built with <a href="https://tailwindcss.com/" class="no-underline font-medium text-black">tailwindcss</a> and ❤️by <a href="https://mesutkoca.com/" class="no-underline font-medium text-black">Mesut Koca</a>.
-        </footer>-->
-        
       </div>
-    </body>
-    <script src="../js/dashboard.js"></script>
+      <!----
+      <div id="profile">
+          <a href="#"><i class="fas fa-user-circle"></i>Profile</a>
+           <a href="@"><i class="fab fa-shopify"></i>Purchases and memberships</a>
+           <a href="#"><i class="fas fa-users-cog"></i>Edit profile</a>
+           <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+      </div>-->
+    </div>
+
+          
+      </div>
+      <span class="open" style="font-size:30px;cursor:pointer;" onclick="openSide()">&#9776;</span><form autocomplete="off" action="searchpage.php" method="post" class="search">
+        <input type="search" name="search" id='txtName' value="" placeholder="Search..."/>
+        <i style="color:gray;" class="fas fa-search"></i>
+        
+      </form>
+     
+      
+    </div>
+   
+    <div id="form-container">
+        <form id="form" autocomplete="off">
+           <input id="note-title" placeholder="Title" type="text">
+           <input id="note-text" placeholder="Take a note..." type="text">
+           <div id="form-buttons">
+              <button type="submit" id="submit-button">Submit</button>
+              <button type="button" id="form-close-button">Close</button>
+           </div>
+        </form>
+    </div>
+    <div id="notes"></div>
+    <div id="placeholder">
+        <img id="placeholder-logo" src="https://icon.now.sh/lightbulb_outline">
+        <p id="placeholder-text">Notes you add appear here</p>
+    </div>
+
+    
+    
+</main>
+<!-- main end -->
+</div>
+
+<div id="snackbar">Otvorili ste sidebar</div>
+<script src="../js/ex.js"></script>
+<script src="../js/dashboard.js"></script>
+
+    
+
 </html>
