@@ -116,7 +116,7 @@ if(true){
 
 function forgot(data){
 
-  servicereq('/user/login','post',data)
+  servicereq('/user/reset','post',data)
 
 }
 
@@ -125,7 +125,7 @@ function forgot(data){
 
 function reset(data){
 
-  servicereq('/user/login','post',data)
+  servicereq('/user/reset-password','post',data)
 
 }
 
