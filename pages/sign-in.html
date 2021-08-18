@@ -13,12 +13,26 @@
     />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/sign-in.css">
+    <style>
+        .form-outline.error input{
+            border-color: #e74c3c;     
+        }
+        .form-outline small{
+        color: #e74c3c;
+        position: absolute;
+        visibility: hidden;
+        }
+
+        .form-outline.error small{
+            visibility: visible;
+         }
+    </style>
 </head>
 
 <body>
     <div class="first-container mx-auto my-auto">
         <div class="content">
-            <form action="#" onsubmit="return validate()" id="form" class="form-content">
+            <div class="form-content">
                     <div class="col-12">
                         <div class="form-head">
                             <div class="fundoo-tittle">
@@ -36,10 +50,11 @@
                             <div class="row g-3">
                                 <div class="col-lg-12 col-sm-12 col-md-12">
                                     <div class="form-outline">
-                                        <input type="text" id="firstname" class="form-control" autocomplete="off" />
+                                        <input type="text" id="username" class="form-control" autocomplete="off" />
                                         <label class="form-label" for="user1">Email or Phone number</label>
                                         <small>Error msg</small>  
                                     </div>
+                                    
                                       <button type="button" class="btn button2" onclick="document.location='forgot-password.html'">Forgot mail?</button>
                                       <div class="password">
                                         <div class="form-text">
@@ -58,19 +73,19 @@
                                     <button type="button" class="btn button2" onclick="document.location='sign-up-page.html'">Create account</button>
                                 </div>
                                 <div class="col-12 col-sm-6 right-button">
-                                    <input class="btn btn-primary" id="btn-primary" type="submit" value="Sign-in">
+                                    <input class="btn btn-primary" id="btn-primary" type="submit" onclick="signvalidate()" value="Sign-in">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-            </form>    
+            </div>    
         </div>
     </div>
 
 
-    </form>
+</div>
     </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>

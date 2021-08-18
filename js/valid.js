@@ -15,7 +15,7 @@ function showError(input, message){
     const small = formControl.querySelector('small');
     small.innerText = message;
     error= true;
-    
+
 }
 
 function showSuccess(input){
@@ -34,10 +34,10 @@ function checkRequired(inputArr){
         
     });
 }
-
+//reg
 const validate =()=>{
     console.log("inside ")
-  checkRequired([firstName,lastName,username,password,password2]);
+ // checkRequired([firstName,lastName,username,password,password2]);
   if(true){
     let data = {
         "firstName": firstName.value,
@@ -51,31 +51,97 @@ const validate =()=>{
  
 }
 
+//sign in function
 const signvalidate =()=>{
     console.log("inside ")
-  checkRequired([firstName,lastName,username,password,password2]);
+  checkRequired([username]);
   if(true){
 //    data dii
+let data = {
+  
+  "email":username.value,
+  "service": "advance",
+ 
+  }
     sign(data)
   }
  
 }
+//forgot pass
+const forgotvalidate =()=>{
+  console.log("inside ")
+checkRequired([username]);
+if(true){
+  let data = {
+     // "firstName": firstName.value,
+     // "lastName": lastName.value,
+      "email":username.value,
+      "service": "advance",
+      //"password": password.value
+  }
+  forgot(data)
+}
 
+}
+//reset
+const resetvalidate =()=>{
+  console.log("inside ")
+checkRequired([password,password2]);
+if(true){
+  let data = {
+     // "firstName": firstName.value,
+     // "lastName": lastName.value,
+      "email":username.value,
+      "service": "advance",
+      "password": password.value
+  }
+  reset(data)
+}
 
+}
+
+//reg
  function registration(data){
 
     servicereq('user/userSignUp','post',data)
  
  }
- 
+ //sign in
+ function sign(data){
+
+  servicereq('/user/login','post',data)
+
+}
+//forgot
+
+function forgot(data){
+
+  servicereq('/user/login','post',data)
+
+}
+
+//reset
+//forgot
+
+function reset(data){
+
+  servicereq('/user/login','post',data)
+
+}
+
  function servicereq (url,meth,data){
+   console.log(data);
    fetch(baseUrl+url, {
    method:meth,
-   body: data
+   body: JSON.stringify(data),
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+          }
    })
-   .then(result => {
-      return console.log('Success:', result);
-   })
+   .then( response => response.json() )
+   .then( data => console.log(data) )
+
    .catch(error => {
      console.error('Error:', error);
    });

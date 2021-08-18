@@ -18,7 +18,7 @@
 <body>
     <div class="first-container mx-auto my-auto">
         <div class="content">
-            <form action="#" onsubmit="return validate()" id="form" class="form-content"></form>
+            <div class="form-content">
                     <div class="col-12">
                         <div class="form-head">
                             <div class="fundoo-tittle">
@@ -60,10 +60,10 @@
                         <div class="sign-in">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <button type="button" class="btn button2" onclick="document.location='sign-up-page.html'">Create account</button>
+                                    <button type="button" class="btn button2" onclick="document.location='registration.html'">Create account</button>
                                 </div>
                                 <div class="col-12 col-sm-6 right-button">
-                                    <input class="btn btn-primary" type="submit" value="Reset">
+                                    <input class="btn btn-primary" type="submit" onclick="resetvalidate ()" value="Reset">
                                 </div>
                             </div>
                         </div>
