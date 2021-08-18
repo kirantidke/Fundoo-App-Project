@@ -1,12 +1,14 @@
 <html lang="sr" dir="ltr">
   <head>
-      <title>Home</title>
+      <title>dashboard</title>
     <meta charset="utf-8">
     <meta name="author" content="Raakado Technologies">
     <meta name="viewport" content="width=device-width, initial-scale=1.">
     
     <script type="text/javascript" src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/notes.css">
+    
   </head>
   <body>
 
@@ -14,7 +16,13 @@
      
  <!-- Sidebar -->
         <div id="Sidebar11" class="sidebar1">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>
+         <!---- <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>-->
+          <span class="toggle" onClick="toggler();">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
           <a id="first" href="#"><i class="fas fa-home"></i>Notes</a>
           <a href=""><i class="fas fa-fire"></i>Reminder</a>
           <a href=""><i class="fas fa-fire"></i>Reminder</a>
@@ -24,15 +32,15 @@
          <!---- <a id="last" href="#"><i class="fas fa-plus"></i> </a>
           <a id="last" href="#"><i class="fas fa-plus"></i>Trash </a>-->
         </div>
-        
+       
         <!-- Navbar -->
     <div class="navbar">
 
       <div class="icons">
-          
-          <div class="icons-hover">
+         
+      <div class="icons-hover">
 
-        
+            
 <a onclick="openNotifications()" href="javascript:void(0)"><i class="fas fa-bell"></i></a>
 
 <div class="tooltip">
@@ -73,7 +81,7 @@
      
       
     </div>
-   
+   <!----
     <div id="form-container">
         <form id="form" autocomplete="off">
            <input id="note-title" placeholder="Title" type="text">
@@ -92,13 +100,47 @@
 
     
     
-</main>
+</main>-->
+<div class="modal">
+  <div class="modal-content">
+     <input class="modal-title" placeholder="Title" type="text">
+     <input class="modal-text" placeholder="Take a note..." type="text">
+     <span class="modal-close-button">Close</span>
+   </div>
+ </div>
+  <main>
+    
+     <div id="form-container">
+         <form id="form" autocomplete="off">
+            <input id="note-title" placeholder="Title" type="text">
+            <input id="note-text" placeholder="Take a note..." type="text">
+            <div id="form-buttons">
+               <button type="submit" id="submit-button">Submit</button>
+               <button type="button" id="form-close-button">Close</button>
+            </div>
+         </form>
+     </div>
+     <div id="notes"></div>
+     <div id="placeholder">
+         <img id="placeholder-logo" src="https://icon.now.sh/lightbulb_outline">
+         <p id="placeholder-text">Notes you add appear here</p>
+     </div>
+
+     <!-- tooltip -->
+     <div id="color-tooltip">
+       <div class="color-option" data-color="#fff" id="white"></div>
+       <div class="color-option" data-color="#d7aefb" id="purple"></div>
+       <div class="color-option" data-color="#fbbc04" id="orange"></div>
+       <div class="color-option" data-color="#a7ffeb" id="teal"></div>
+     </div>
+  </main>
 <!-- main end -->
 </div>
 
 <div id="snackbar">Otvorili ste sidebar</div>
-<script src="../js/ex.js"></script>
+<script src="../js/notes.js"></script>
 <script src="../js/dashboard.js"></script>
+<script src="../js/ex.js"></script>
 
     
 

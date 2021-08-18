@@ -95,6 +95,13 @@ form.addEventListener('onclick', (event) => {
     console.error(error);
 });
 });*/
+let data = {
+    "firstName": this.state.firt,
+    "lastName": this.state.las,
+    "email": "jhdb@gmail.com",
+    "service": "advance",
+    "password": "jsbfvjhdbf"
+}
 const fetchnew = (url,methodnew) =>{
     //cont baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
     fetch(baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/"+url),{
