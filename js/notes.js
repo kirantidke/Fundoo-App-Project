@@ -53,12 +53,12 @@ class App {
      this.style.display = 'none';
   });
 
-  this.$colorTooltip.addEventListener('click', event => {
-       const color = event.target.dataset.color;
-       if (color) {
-         this.editNoteColor(color);
-       }
-    });
+  ///this.$colorTooltip.addEventListener('click', event => {
+     //  const color = event.target.dataset.color;
+       //if (color) {
+         //this.editNoteColor(color);
+       //}
+    //});
 
 
 
@@ -174,41 +174,40 @@ addNote({ title, text}) {
     // closes form after entering a note
     this.closeForm();
   }
-
-  editNote() {
-     const title = this.$modalTitle.value;
-     const text = this.$modalText.value;
-     this.notes = this.notes.map(note =>
+  //editNote() {
+    // const title = this.$modalTitle.value;
+     //const text = this.$modalText.value;
+     //this.notes = this.notes.map(note =>
        //need to convert id from string to number
-       note.id === Number(this.id) ? { ...note, title, text } : note
-     );
-     this.render();
-  }
+       //note.id === Number(this.id) ? { ...note, title, text } : note
+     //);
+     //this.render();
+  //}
 
-  editNoteColor(color) {
-   this.notes = this.notes.map(note =>
-     note.id === Number(this.id) ? { ...note, color } : note
-   );
-   this.render();
- }
+  //editNoteColor(color) {
+   //this.notes = this.notes.map(note =>
+     //note.id === Number(this.id) ? { ...note, color } : note
+   //);
+   //this.render();
+ //}
 
   // populate the modal with title and text from selected note
-  selectNote(event) {
-   const $selectedNote = event.target.closest('.note');
-   if (!$selectedNote) return;
-   const [$noteTitle, $noteText] = $selectedNote.children;
-   this.title = $noteTitle.innerText;
-   this.text = $noteText.innerText;
-   this.id = $selectedNote.dataset.id;
-}
+  //selectNote(event) {
+   //const $selectedNote = event.target.closest('.note');
+   //if (!$selectedNote) return;
+   //const [$noteTitle, $noteText] = $selectedNote.children;
+   //this.title = $noteTitle.innerText;
+   //this.text = $noteText.innerText;
+   //this.id = $selectedNote.dataset.id;
+//}
 
-deleteNote(event) {
-   event.stopPropagation();
-   if (!event.target.matches('.toolbar-delete')) return;
-   const id = event.target.dataset.id;
-   this.notes = this.notes.filter(note => note.id !== Number(id));
-   this.render();
- }
+//deleteNote(event) {
+  // event.stopPropagation();
+   //if (!event.target.matches('.toolbar-delete')) return;
+   //const id = event.target.dataset.id;
+   //this.notes = this.notes.filter(note => note.id !== Number(id));
+   //this.render();
+ //}
 
  render() {
     this.saveNotes();
@@ -218,7 +217,7 @@ deleteNote(event) {
  //store note when we refresh
  saveNotes() {
    //JSON.stringify turns note into a string
-    localStorage.setItem('notes', JSON.stringify(this.notes))
+    localStorage.setItem('notes', JSON.stringify(this.notes))//method converts a JavaScript object or value to a JSON string,
   }
 
   displayNotes() {

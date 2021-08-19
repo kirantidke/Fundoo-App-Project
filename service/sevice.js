@@ -8,14 +8,20 @@ export function registration(data){
 
 }
 
+//service
 function servicereq (url,meth,data){
+  console.log(data);
   fetch(baseUrl+url, {
   method:meth,
-  body: JSON.stringify(data)
+  body: JSON.stringify(data),
+           mode: 'cors',
+           headers: {
+             'Content-Type': 'application/json',
+         }
   })
-  .then(result => {
-     return console.log('Success:', result);
-  })
+  .then( response => response.json() )
+  .then( data => console.log(data) )
+
   .catch(error => {
     console.error('Error:', error);
   });

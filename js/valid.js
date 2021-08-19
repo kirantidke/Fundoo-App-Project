@@ -60,6 +60,7 @@ const signvalidate =()=>{
 let data = {
   
   "email":username.value,
+  "password": password.value,
   "service": "advance",
  
   }
@@ -91,9 +92,10 @@ if(true){
   let data = {
      // "firstName": firstName.value,
      // "lastName": lastName.value,
-      "email":username.value,
+     // "email":username.value,
       "service": "advance",
       "password": password.value
+
   }
   reset(data)
 }
@@ -112,7 +114,7 @@ if(true){
   servicereq('/user/login','post',data)
 
 }
-//forgot
+//forgot service
 
 function forgot(data){
 
@@ -121,14 +123,14 @@ function forgot(data){
 }
 
 //reset
-//forgot
+//forgot service
 
 function reset(data){
 
   servicereq('/user/reset-password','post',data)
 
 }
-
+//service
  function servicereq (url,meth,data){
    console.log(data);
    fetch(baseUrl+url, {
