@@ -151,10 +151,10 @@ function reset(data){
    console.log(data);
    fetch(baseUrl+url, {
    method:meth,
-   headers: {
-    'Content-Type': 'application/json',
-    'Authorization': localStorage.getItem('token')
-  },
+  //  headers: {
+  //   'Content-Type': 'application/json',
+  //   'Authorization': localStorage.getItem('token')
+  // },
    body: JSON.stringify(data),
             mode: 'cors',
             headers: {
@@ -165,6 +165,7 @@ function reset(data){
    .then( response => response.json() )
    .then( data => {
      console.log(data)
+     //if(page ==.html)
      localStorage.setItem('token', data.id);
    } )
 

@@ -29,17 +29,6 @@ $( document ).ready(function() {
 } );
 
 
-/****toggle text field***/
-
-
-// $(document).ready(function(){
-//     $('#form').click(function(){
-//       $('#form').addClass('form-open');
-//       document.querySelector("#note-title").style.display = "block";
-//       document.querySelector("#form-buttons").style.display = "block";
-//     });
-// });
-
 function openNotes(){
   // $('#form').addClass('form-open');
       document.querySelector("#note-title").style.display = "block";

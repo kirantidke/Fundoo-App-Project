@@ -34,8 +34,8 @@ const addNotes = () => {
   console.log("inside ")
   if(true){
     let data = {                         //title &description
-        "title": title,
-        "description": description
+        "title": title.value,
+        "description": description.value
       }
       notes(data)
   }
@@ -61,15 +61,15 @@ const addNotes = () => {
    },
     body: JSON.stringify(data),
              mode: 'cors',
-             headers: {
-               'Content-Type': 'application/json',
-           }
+          //    headers: {
+          //      'Content-Type': 'application/json',
+          //  }
            
     })
     .then( response => response.json() )
     .then( data => {
       console.log(data)
-      localStorage.setItem('token', data.id);
+     // localStorage.setItem('token', data.id);
     } )
  
  
