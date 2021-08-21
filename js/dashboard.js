@@ -40,36 +40,36 @@ function openSide() {
   }
 
 
-//function openNotifications() {
-  //var x =
-  //document.getElementById("nottifications");
-  //if (x.style.display === "none") {
-   // x.style.display = "block";
-  //} else {
-   // x.style.display = "none";
-  //}
-//}
-
-
-    //var cip = $(".video").hover( hoverVideo, hideVideo );
-
-//function hoverVideo(e) {  
-  //$('video', this).get(0).play(); 
-//}
-
-//function hideVideo(e) {
-  //$('video', this).get(0).pause(); 
-//}
-
-function openProfile() {
+function openNotifications() {
   var x =
-  document.getElementById("profile");
+  document.getElementById("nottifications");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
 }
+
+
+//     var cip = $(".video").hover( hoverVideo, hideVideo );
+
+// function hoverVideo(e) {  
+//   $('video', this).get(0).play(); 
+// }
+
+// function hideVideo(e) {
+//   $('video', this).get(0).pause(); 
+// }
+
+// function openProfile() {
+//   var x =
+//   document.getElementById("profile");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
 
 
 function openProfile() {

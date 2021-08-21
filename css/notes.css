@@ -11,7 +11,7 @@ body {
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #292929;
+   /* background: #292929;*/
   }
   
   /* Handle */
@@ -22,7 +22,7 @@ body {
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+   /* background: #555;*/
   }
   
   #main {
@@ -47,7 +47,8 @@ body {
   }
   
   .search {
-    background: #2b2b2b;
+    background: white;
+    border: 2px solid black;
     padding: 10px;
     width: 200px;
     border-radius: 5px;
@@ -55,7 +56,7 @@ body {
   
   .search input {
     height: 25px;
-    background: #2b2b2b;
+    background:white;
     border: none;
     outline: none;
     color: white;
@@ -223,7 +224,7 @@ body {
   
   /* ---------------- Sidebar ------------------ */
   .sidebar1 {
-    background: #1a1a1a;
+   /* background: #1a1a1a;*/
     position: fixed;
     font-family: sans-serif;
     height: 100%;
@@ -246,7 +247,7 @@ body {
   
   .sidebar1 .closebtn:hover {
     color: white;
-    background: #1a1a1a;
+   /* background: #1a1a1a;*/
   }
   
   .sidebar1 a {
@@ -330,7 +331,7 @@ body {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: #333;
+    /*background-color: #333;*/
     color: #fff;
     text-align: center;
     border-radius: 2px;
@@ -370,7 +371,7 @@ body {
   html,
 body {
   background-color: #fff;
-  color: #202124;
+  /*color: #202124;*/
   font-size: 15px;
   margin: 0;
   min-width: 360px;
@@ -430,7 +431,7 @@ main {
 }
 
 .form-open {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);*/
 }
 
 header {
@@ -558,7 +559,7 @@ input:focus {
 
 #submit-button {
   color: #fff;
-  background-color: #007bff;
+  background-color: white;
 }
 
 #submit-button:hover,
@@ -950,7 +951,7 @@ input:focus {
 
 #submit-button {
   color: #fff;
-  background-color: #007bff;
+  background-color: white;
 }
 
 #submit-button:hover,

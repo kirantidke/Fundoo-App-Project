@@ -7,6 +7,13 @@ const password2= document.getElementById('password2');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
 
+const head = {
+  headers: {
+          // 'Accept': 'application/json',charset=UTF-8',
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }
+}
 
 
 function showError(input, message){
@@ -53,15 +60,15 @@ const validate =()=>{
 
 //sign in function
 const signvalidate =()=>{
-    console.log("inside ")
-  checkRequired([username]);
+  console.log("inside ")
+  checkRequired([username,password]);
   if(true){
 //    data dii
 let data = {
   
   "email":username.value,
   "password": password.value,
-  "service": "advance",
+  //"service": "advance",
  
   }
     sign(data)
@@ -87,20 +94,23 @@ if(true){
 //reset
 const resetvalidate =()=>{
   console.log("inside ")
-checkRequired([password,password2]);
-if(true){
-  let data = {
+  checkRequired([password]);
+  if(true){
+    let data = {
      // "firstName": firstName.value,
      // "lastName": lastName.value,
      // "email":username.value,
-      "service": "advance",
+     // "service": "advance",
       "password": password.value
+      //newpassword:this.state.password,token:requiredToken
 
   }
   reset(data)
 }
 
 }
+
+
 
 //reg
  function registration(data){
@@ -111,14 +121,14 @@ if(true){
  //sign in
  function sign(data){
 
-  servicereq('/user/login','post',data)
+  servicereq('user/login','post',data)
 
 }
 //forgot service
 
 function forgot(data){
 
-  servicereq('/user/reset','post',data)
+  servicereq('user/reset','post',data)
 
 }
 
@@ -127,24 +137,58 @@ function forgot(data){
 
 function reset(data){
 
-  servicereq('/user/reset-password','post',data)
+  servicereq('user/reset-password','post',data)
 
 }
+
+// const getnote =()=>{
+//   servicereq('notes/getNotesList', 'get', {})
+// }
+
+
 //service
  function servicereq (url,meth,data){
    console.log(data);
    fetch(baseUrl+url, {
    method:meth,
+   headers: {
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+  },
    body: JSON.stringify(data),
             mode: 'cors',
             headers: {
               'Content-Type': 'application/json',
           }
+          
    })
    .then( response => response.json() )
-   .then( data => console.log(data) )
+   .then( data => {
+     console.log(data)
+     localStorage.setItem('token', data.id);
+   } )
+
 
    .catch(error => {
      console.error('Error:', error);
    });
+
+  //  getnote();
+  //  return console.log('Success:', result);
+   
  }
+
+//  const addNotes = () => {
+//   const description = document.getElementById('note-text').value;
+//   const title = document.getElementById('note-title').value;
+  
+//   //validatenotes() check([description])
+//   if(description !== '' && title !== ''){
+//     let data = {                         //title &description
+//       "title": title,
+//       "description": description
+//     }
+//     // notesreq('notes/addNotes','post', data)
+//     servicereq('notes/addNotes','post', data)
+//   }
+//}

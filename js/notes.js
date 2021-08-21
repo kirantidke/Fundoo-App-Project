@@ -1,3 +1,4 @@
+const baseUrl = 'http://fundoonotes.incubation.bridgelabz.com/api/';
 class App {
   constructor() {
     // JSON.parse turns string into array
@@ -22,6 +23,7 @@ class App {
     this.render();
     this.addEventListeners();
   }
+  
 
   addEventListeners() {
   document.body.addEventListener("click", event => {
@@ -53,20 +55,11 @@ class App {
      this.style.display = 'none';
   });
 
-  ///this.$colorTooltip.addEventListener('click', event => {
-     //  const color = event.target.dataset.color;
-       //if (color) {
-         //this.editNoteColor(color);
-       //}
-    //});
-
-
-
 //EventListener to clear the form when submitted
   this.$form.addEventListener("submit", event => {
     //to prevent the default event of refreshing when submitted add ev
-       event.preventDefault();
-         // get input from id = note-title and id = note-text
+      
+    event.preventDefault();// get input from id = note-title and id = note-text
        const title = this.$noteTitle.value;
        const text = this.$noteText.value;
              //conditional to make sure text in the title or text space
@@ -174,40 +167,7 @@ addNote({ title, text}) {
     // closes form after entering a note
     this.closeForm();
   }
-  //editNote() {
-    // const title = this.$modalTitle.value;
-     //const text = this.$modalText.value;
-     //this.notes = this.notes.map(note =>
-       //need to convert id from string to number
-       //note.id === Number(this.id) ? { ...note, title, text } : note
-     //);
-     //this.render();
-  //}
 
-  //editNoteColor(color) {
-   //this.notes = this.notes.map(note =>
-     //note.id === Number(this.id) ? { ...note, color } : note
-   //);
-   //this.render();
- //}
-
-  // populate the modal with title and text from selected note
-  //selectNote(event) {
-   //const $selectedNote = event.target.closest('.note');
-   //if (!$selectedNote) return;
-   //const [$noteTitle, $noteText] = $selectedNote.children;
-   //this.title = $noteTitle.innerText;
-   //this.text = $noteText.innerText;
-   //this.id = $selectedNote.dataset.id;
-//}
-
-//deleteNote(event) {
-  // event.stopPropagation();
-   //if (!event.target.matches('.toolbar-delete')) return;
-   //const id = event.target.dataset.id;
-   //this.notes = this.notes.filter(note => note.id !== Number(id));
-   //this.render();
- //}
 
  render() {
     this.saveNotes();
@@ -216,19 +176,19 @@ addNote({ title, text}) {
 
  //store note when we refresh
  saveNotes() {
-   //JSON.stringify turns note into a string
+   
     localStorage.setItem('notes', JSON.stringify(this.notes))//method converts a JavaScript object or value to a JSON string,
   }
 
   displayNotes() {
     const hasNotes = this.notes.length > 0;
     this.$placeholder.style.display = hasNotes ? 'none' : 'flex';
-     //  if (hasNotes) {
+    
+ //  if (hasNotes) {
      //    this.$placeholder.style.display = 'none';
      //  } else {
      //    this.$placeholder.style.display = 'flex';
      //  }
-
      this.$notes.innerHTML = this.notes.map(note => `
         <div style="background: ${note.color};" class="note" data-id="${note.id}">
           <div class="${note.title && 'note-title'}">${note.title}</div>
@@ -247,3 +207,28 @@ addNote({ title, text}) {
 }
 
 new App();
+
+//service
+function addNote(data){
+
+  servicereq('/notes/addNotes','post',data)
+
+}
+//service
+function servicereq (url,meth,data){
+  console.log(data);
+  fetch(baseUrl+url, {
+  method:meth,
+  body: JSON.stringify(data),
+           mode: 'cors',
+           headers: {
+             'Content-Type': 'application/json',
+         }
+  })
+  .then( response => response.json() )
+  .then( data => console.log(data) )
+
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
