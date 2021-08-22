@@ -40,15 +40,42 @@ const addNotes = () => {
       notes(data)
   }
     
-    // notesreq('notes/addNotes','post', data)
-    //servicereq('notes/addNotes','post', data)
   }
   function notes(data){
 
     servicereq('notes/addNotes','post',data)
+    }
+
+    //display notes
+    // const getNotes = () => {
+    //   console.log("inside ")
+    //   if(true){
+    //     let data = {                         //title &description
+          
+         
+    //   } 
+    //   notesnew(data)
+        
+    //   }
     
- 
- }
+      //function notesnew(data){
+    
+        // servicereq('notes/addNotes','get')
+         
+       // var nHTML = '';
+        //for(i=0; i<res.data.data.data.length; i++){
+          // nHTML += `<div class="item-container"><div class="items"> <li style="list-style-type:none">` + res.data.data.data[i].title
+           // + "      "+`</li>` +  `<li style="list-style-type:none">` +  res.data.data.data[i].description + `</li>` + `<button id=`+ res.data.data.data[i].id +` type="button" onclick="deleteNote(id=this.id)">Delete</button></div></div>`;
+        // }
+         //document.getElementById("item-list").innerHTML = '<ul>' + nHTML + '</ul>'  
+      
+      // }
+      
+      
+ // }
+
+    
+
 
  //service
  function servicereq (url,meth,data){
@@ -71,7 +98,7 @@ const addNotes = () => {
       console.log(data)
      // localStorage.setItem('token', data.id);
     } )
- 
+    //getNotes()
  
     .catch(error => {
       console.error('Error:', error);

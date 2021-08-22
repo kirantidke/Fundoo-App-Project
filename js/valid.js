@@ -147,49 +147,56 @@ function reset(data){
 
 
 //service
- function servicereq (url,meth,data){
-   console.log(data);
-   fetch(baseUrl+url, {
-   method:meth,
-  //  headers: {
-  //   'Content-Type': 'application/json',
-  //   'Authorization': localStorage.getItem('token')
-  // },
-   body: JSON.stringify(data),
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-          }
+//  function servicereq (url,meth,data){
+//    console.log(data);
+//    fetch(baseUrl+url, {
+//    method:meth,
+//    headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': localStorage.getItem('token')
+//   },
+//    body: JSON.stringify(data),
+//             mode: 'cors',
+//             headers: {
+//               'Content-Type': 'application/json',
+//           }
           
-   })
-   .then( response => response.json() )
-   .then( data => {
-     console.log(data)
-     //if(page ==.html)
-     localStorage.setItem('token', data.id);
-   } )
+//    })
+//    .then( response => response.json() )
+//    .then( result => {
+//       console.log(data)
+//      //if(page =="sigiin"){
+//       localStorage.setItem('token', data.id);
+//       //window.location.href = 'dashboard.html';
+//     // }
+//      return console.log('success:',result);
+//     } )
+//   .catch(error => {
+//      console.error('Error:', error);
+//    });
 
-
-   .catch(error => {
-     console.error('Error:', error);
-   });
-
-  //  getnote();
-  //  return console.log('Success:', result);
-   
- }
-
-//  const addNotes = () => {
-//   const description = document.getElementById('note-text').value;
-//   const title = document.getElementById('note-title').value;
+  function servicereq (url,meth,data){
+    console.log(data);
+    fetch(baseUrl+url, {
+    method:meth,
+    body: JSON.stringify(data),
+             mode: 'cors',
+             headers: {
+               'Content-Type': 'application/json',
+           }
+           
+    })
+    .then( response => response.json() )
+    .then( data => {
+    console.log(data)
+    
+    localStorage.setItem('token', data.id);
+    window.location.href = 'dashboard.html';
+    
+  })
   
-//   //validatenotes() check([description])
-//   if(description !== '' && title !== ''){
-//     let data = {                         //title &description
-//       "title": title,
-//       "description": description
-//     }
-//     // notesreq('notes/addNotes','post', data)
-//     servicereq('notes/addNotes','post', data)
-//   }
-//}
+  console.log(data)
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
