@@ -94,6 +94,9 @@ const addNotes = () => {
     .then( response => response.json() )
     .then( data => {
       console.log(data)
+      var results = document.getElementById('results')
+      results.innerHTML = `<div><p>note is dsjfbcx xjsbjkdshc c njcjnjksdscn nmc ${data.title}</p>
+      <p>body iscnjsakdcc bbabkdhjskjndjskanxcxbsbdjksd${data.description}</p><>`
      // localStorage.setItem('token', data.id);
     } )
     //getNotes()
