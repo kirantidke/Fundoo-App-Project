@@ -1,5 +1,5 @@
-const description = document.getElementById('title');
-const title = document.getElementById('note');
+const description = document.getElementById('note-text');
+const title = document.getElementById('note-title');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
 
@@ -35,30 +35,46 @@ const addNotes = () => {
   if(true){
     let data = {                         //title &description
         "title": title.value,
-        "note": description.value
+        "description": description.value
       }
       notes(data)
   }
-  getNotes();
+    
   }
   function notes(data){
 
     servicereq('notes/addNotes','post',data)
     }
-//display notes
-    function getNotes() {
-      console.log("inside ")
-      if(true){
-    let data = {                         //title &description
-       
-      }
-      getnotes(data)
-  }
-}
-function getnotes(data){
 
-  servicereq('notes/addNotes','get')
-  }
+    //display notes
+    // const getNotes = () => {
+    //   console.log("inside ")
+    //   if(true){
+    //     let data = {                         //title &description
+          
+         
+    //   } 
+    //   notesnew(data)
+        
+    //   }
+    
+      //function notesnew(data){
+    
+        // servicereq('notes/addNotes','get')
+         
+       // var nHTML = '';
+        //for(i=0; i<res.data.data.data.length; i++){
+          // nHTML += `<div class="item-container"><div class="items"> <li style="list-style-type:none">` + res.data.data.data[i].title
+           // + "      "+`</li>` +  `<li style="list-style-type:none">` +  res.data.data.data[i].description + `</li>` + `<button id=`+ res.data.data.data[i].id +` type="button" onclick="deleteNote(id=this.id)">Delete</button></div></div>`;
+        // }
+         //document.getElementById("item-list").innerHTML = '<ul>' + nHTML + '</ul>'  
+      
+      // }
+      
+      
+ // }
+
+  
  //service
  function servicereq (url,meth,data){
     console.log(data);
@@ -78,18 +94,10 @@ function getnotes(data){
     .then( response => response.json() )
     .then( data => {
       console.log(data)
-
-      // var results = document.getElementById('results')
-      // results.innerHTML = `<div><p>note is dsjfbcx xjsbjkdshc c njcjnjksdscn nmc ${data.title}</p>
-      // <p>body iscnjsakdcc bbabkdhjskjndjskanxcxbsbdjksd${data.description}</p>`
+      var results = document.getElementById('results')
+      results.innerHTML = `<div><p>note is dsjfbcx xjsbjkdshc c njcjnjksdscn nmc ${data.title}</p>
+      <p>body iscnjsakdcc bbabkdhjskjndjskanxcxbsbdjksd${data.description}</p><>`
      // localStorage.setItem('token', data.id);
-     var results = '';
-     for(i=0; i<response.data.data.data.length; i++){
-       nHTML += `<div class="item-container">
-                  <div class="items"> <li style="list-style-type:none">` + response.data.data.data[i].title
-                  + "      "+`</li>` +  `<li style="list-style-type:none">` +  response.data.data.data[i].description + `</li>` + `<button id=`+ response.data.data.data[i].id +` type="button" onclick="deleteNote(id=this.id)">Delete</button></div></div>`;
-     }
-     document.getElementById("results").innerHTML = '<ul>' + results + '</ul>'  
     } )
     //getNotes()
  
