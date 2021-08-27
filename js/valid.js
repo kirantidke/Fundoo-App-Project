@@ -1,4 +1,5 @@
 // import {registration} from '../service/sevice'
+
 const firstName= document.getElementById('firstName');
 const lastName= document.getElementById('lastName');
 const username= document.getElementById('username');
@@ -75,7 +76,7 @@ let data = {
   }
  
 }
-//forgot pass
+//--------------------forgot pass---------------//
 const forgotvalidate =()=>{
   console.log("inside ")
 checkRequired([username]);
@@ -91,7 +92,7 @@ if(true){
 }
 
 }
-//reset
+//------------------------reset-------------------------//
 const resetvalidate =()=>{
   console.log("inside ")
   checkRequired([password]);
@@ -112,19 +113,19 @@ const resetvalidate =()=>{
 
 
 
-//reg
+//----------------------registration------------------//
  function registration(data){
 
     servicereq('user/userSignUp','post',data)
  
  }
- //sign in
+ //-------------------sign in----------------------//
  function sign(data){
 
   servicereq('user/login','post',data)
 
 }
-//forgot service
+//-----------------forgot service---------------//
 
 function forgot(data){
 
@@ -133,7 +134,7 @@ function forgot(data){
 }
 
 //reset
-//forgot service
+//---------------forgot service-----------------//
 
 function reset(data){
 
@@ -175,6 +176,7 @@ function reset(data){
 //      console.error('Error:', error);
 //    });
 
+//------------------------service-----------------------//
   function servicereq (url,meth,data){
     console.log(data);
     fetch(baseUrl+url, {
@@ -189,10 +191,12 @@ function reset(data){
     .then( response => response.json() )
     .then( data => {
     console.log(data)
-    
+    //if(page=="signin.html"){
     localStorage.setItem('token', data.id);
+    localStorage.setItem('username', data.email);
     window.location.href = 'dashboard.html';
-    
+
+    //}
   })
   
   console.log(data)
