@@ -157,6 +157,20 @@
               <img id="placeholder-logo">
               <p id="placeholder-text">Notes you add appear here</p>
           </div>
+          <content class="collab" id="collab-content">
+        
+            <p class="block">Collaboraters</p>
+            <div class="default-email" id="default-email" >
+            <p class="in"><img src="../assets/person-circle.svg" class="note-img" width="30"></img><input type="text" id="collabuser" name="fname" value=""></p>
+            
+            <p class="in"><img src="../assets/person-circle.svg" class="note-img" width="30"></img><input type="text" id="collab" name="fname" oninput="collaborate(this)"></p>
+           
+            <p class="block">
+               <button type="button" onclick="alert('canceled')">Cancel</button>     
+              <button type="button" onclick="alert('Saved')">save</button>
+            </p>
+            </div>
+           </content>
           
     </section>
 
@@ -167,6 +181,7 @@
     <script src="../js/registration.js"></script>
     <!-- <script src="../js/notes.js"></script> -->
     <!--<script src="../js/dashboard.js"></script> -->
+    <script src="../js/dashboard-api.js"></script> 
     <script src="../js/dashboard-api.js"></script> 
     <script type="text/javascript" src="../js/valid.js"></script>
    
