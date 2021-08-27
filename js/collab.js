@@ -85,6 +85,32 @@ function getEmail() {
   }
  
 }
+//---------------------search mail--------------------//
+
+var email = document.getElementById("collab-search");
+var email = document.getElementById("email-list");
+
+const searchMail =(e)=>{
+  //alert("hii");
+  console.log("search")
+
+if(true){
+  let data = {
+      searchWord: e.target.value
+        
+    }
+  search(data);
+}
+
+}
+//-------------------get search email-----------------//
+
+//-----------------------------------------------------------//
+function search(data){
+
+servicereq('user/searchUserList','get',data)
+
+}
 
 //------------------------service-----------------------//
   function servicereq (url,meth,data){
