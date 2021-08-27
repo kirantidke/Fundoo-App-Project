@@ -9,7 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/dashboard copy.css">
+    <link rel="stylesheet" href="../CSS/popup.css">
 
     <title>Dashboard</title>
 </head>
@@ -58,7 +59,17 @@
         <div class="add-note3" id="add-note-btns"></div>
     </div>
     <!---------------------------collaborator--------------------->
+    <!-- h2>Modal Example</h2> -->
 
+<!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
     <content class="collab" id="collab-content">
 
         <p class="block">Collaboraters</p>
@@ -94,6 +105,46 @@
             </p>
         </div>
     </content>
+   
+  </div>
+
+</div>
+
+    <!-- <content class="collab" id="collab-content">
+
+        <p class="block">Collaboraters</p>
+        <div class="default-email" id="login-email">
+            <p class="in">
+                <img src="../assets/person-circle.svg" class="note-img" width="30"></img> -->
+                <!-- <input type="text" id="collabuser" name="fname" value="">
+            -->
+            <!-- <div id="para-login">
+
+            </div>
+            </p> -->
+
+            <!-- <p class="in">
+                <img src="../assets/person-circle.svg" class="note-img" width="30">
+                </img>
+                <input type="text" id="collab-search" name="fname" style="border: none;" oninput="searchEmail()">
+            <div id="email-list">
+                <div class="dropdown1">
+                    <div class="dropdown-item1">
+                        
+                    </div>
+                    <!-- <div class="dropdown-item1">Add label</div> -->
+
+                <!-- </div>
+            </div>
+
+            </p>
+
+            <p class="block">
+                <button type="button" onclick="alert('canceled')">Cancel</button>
+                <button type="button" onclick="alert('Saved')">save</button>
+            </p>
+        </div>
+    </content> 
     <!--------------------------Card -------------------- -->
     <input type="file" id="imgupload" style="display:none" />
     <div id="card"></div>
@@ -103,9 +154,10 @@
         <div class="edit-note3" id="edit-note-btns"></div>
     </div>
     <!------------------js----------------------->
-    <script src="../JS/dashboard.js"></script>
+    <script src="../JS/dashboard copy.js"></script>
     <script src="../Service/service.js"></script>
     <script src="../JS/validation.js"></script>
+    <script src="../JS/popup.js"></script>
 </body>
 
 </html>

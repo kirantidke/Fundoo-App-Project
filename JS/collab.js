@@ -1,4 +1,4 @@
-const firstName= document.getElementById('collabuser');
+const firstName= document.getElementById('default-email');
 const lastName= document.getElementById('collab');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
@@ -37,7 +37,7 @@ function checkRequired(inputArr){
         
     });
 }
-//reg
+//---------------------collaboration-----------------------//
 const collaborate =(e)=>{
     console.log("inside ")
  // checkRequired([firstName,lastName,username,password,password2]);
@@ -57,17 +57,49 @@ const collaborate =(e)=>{
  
  }
 
-//  window.addEventListener('DOMContentLoaded', (event) => {
-//     getEmail();
-//   });
 
+ console.log(email);
+
+//  window.addEventListener('DOMContentLoaded', (event) => {
+//      getEmail();
+//    });
+
+//------------------------get email-----------------------//
 function getEmail() {
-    let email = localStorage.getItem('email');
+    let email = localStorage.getItem('username');
     console.log(email);
     var nHTML = '';
     nHTML += email;
-    document.getElementById("default-email").innerHTML = nHTML    
+    document.getElementById("para-login").innerText = email; 
+    //searchMail();
   }
+
+  //---------------------search mail--------------------//
+
+  var email = document.getElementById("collab-search");
+  var email = document.getElementById("email-list");
+
+  const searchMail =(e)=>{
+    //alert("hii");
+    console.log("search")
+ 
+  if(true){
+    let data = {
+        searchWord: e.target.value
+          
+      }
+    search(data);
+  }
+ 
+}
+//-------------------get search email-----------------//
+
+//-----------------------------------------------------------//
+function search(data){
+
+  servicereq('user/searchUserList','get',data)
+
+}
 
 //------------------------service-----------------------//
   function servicereq (url,meth,data){

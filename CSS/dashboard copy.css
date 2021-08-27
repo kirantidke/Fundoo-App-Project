@@ -597,29 +597,29 @@ body {
 
 /*collaborator */
 
-content, .block, .inline, .inline-block {
+/* content, .block, .inline, .inline-block {
 	outline: 1px solid rgb(199, 194, 194);
 }
 content {
   width: 30%;
-  display: none;
+  display: none; */
  /* margin: auto;*/
-  background-color: white;
+  /* background-color: white; */
   /*font-size:25px;*/
-  color:black;
-  z-index: 1;
+  /* color:black;
+  z-index: 1; */
 
-}
+/* }
 .block {
   display: block;
   font-size: 25px;
-  padding: 10px;
+  padding: 10px; */
   /*margin: 20px; /* remove this margin to see how inline paragraphs can bleed into block paragraphs */
-  background-color:rgb(235, 227, 227);
+  /* background-color:rgb(235, 227, 227);
   
-}
+} */
 
-.inline-block {
+/* .inline-block {
   display: none;
   padding: 20px;
   margin: 20px;
@@ -633,4 +633,4 @@ align-self: right;
   color:black;
   background-color:rgb(235, 227, 227);
   border: blue;
-}
+} */

@@ -107,8 +107,8 @@ function closeNote(myid) {
 function addcollaborator(){
     //alert('add');
    // console.log("hii");
- console.log(document.getElementById('collab-content').style)  
- document.getElementById('collab-content').style.display = "block";
+ console.log(document.getElementById('myModal').style)  
+ document.getElementById('myModal').style.display = "block";
  document.getElementById("para-login").innerHTML=localStorage.getItem("username");
 
        // if (document.getElementById('collab-content').style.display === 'none') {
