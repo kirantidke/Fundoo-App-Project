@@ -194,7 +194,7 @@ function reset(data){
     //if(page=="signin.html"){
     localStorage.setItem('token', data.id);
     localStorage.setItem('username', data.email);
-    window.location.href = 'dashboard.html';
+    //window.location.href = 'dashboard.html';
 
     //}
   })
