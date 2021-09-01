@@ -1,3 +1,16 @@
+window.addEventListener("DOMContentLoaded", (event) => {
+    console.log(localStorage.getItem("token"))
+    let data =localStorage.getItem("token");
+    
+//     if (!data) {
+//         window.location.href = "../pages/sign_in.html";
+//     }
+//    else{
+//         window.location.href = "../pages/dashboard.html";
+        
+        console.log(getNote())
+    //}
+})
 
 /***********************sidebar**************************/
 let flag = true;
@@ -23,18 +36,9 @@ function openDrawer() {
     }
 }
 /************************Check Login *************************/
-$(document).ready(() => {
-    let data = JSON.parse(localStorage.getItem("userData"));
-    if (!data) {
-        window.location.href = "../pages/signin.html";
-    }
-    if ((!data) === "") {
-        window.location.href = "../pages/dashboard.html";
-    }
-})
 
 
-/**************Color Palette ********************/
+/**********************Color Palette ********************/
 let myPalette =
     `<div class="myPalette">
         <div class="sub-one">
@@ -59,16 +63,16 @@ let myPalette =
         </div>
     </div>`
 
- /*******************Add Note Buttons *****************************/
- let myBtns = `<div class="btns">
+/*******************Add Note Buttons **********************/
+let myBtns = `<div class="btns">
  <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
  <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
  <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img">${myPalette}</div>
  <div class="myBtns"><img src="../assets/add_image.svg" class="my-Btn-img"></div>
- <div class="myBtns"><img src="../assets/archive.svg" class="my-Btn-img"></div>
+ <div class="myBtns"><img src="../assets/archive.svg" onclick="printNoteData()" class="my-Btn-img"></div>
  <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
  </div>
- <button onclick="closeNote($(this).parent().attr('id'))">Close</button>`;
+<button onclick="closeNote()">Close</button>`;
 
 /************************ Add Note*****************************/
 function addNote() {
@@ -78,58 +82,88 @@ function addNote() {
     $(".sub-note2").css('display', 'block');
     $(".add-note3").css('display', 'flex');
     document.getElementById("add-note-btns").innerHTML = myBtns;
+    // document.getElementById("note").innerHTML = myBtns;
+    // document.getElementById("title").innerHTML = myBtns;
+
 }
 function closeNote(myid) {
-     if (myid === "add-note-btns") {
-         $(".sub-note1").attr('placeholder', 'Take a note...');
-         $(".add-note").css('height', '45px');
-         $("#card").css('top', '28%');
-         $(".sub-note2").css('display', 'none');
-         $(".add-note3").css('display', 'none');
+    console.log("added")
+    if (myid === "add-note-btns") {
+        $(".sub-note1").attr('placeholder', 'Take a note...');
+        $(".add-note").css('height', '45px');
+        $("#card").css('top', '28%');
+        $(".sub-note2").css('display', 'none');
+        $(".add-note3").css('display', 'none');
 
-         let title = document.getElementById("title").value;
-         let note = document.getElementById("note").value;
-         let noteData = {
-             "title": title,
-             "description": note
-         }
-         if (title !== "" || note !== "") {
-             saveNote(noteData);
-         }
-         document.getElementById("title").value = "";
-         document.getElementById("note").value = "";
-     }
-     if (myid === "edit-note-btns") {
-         $(".edit-note").css("display", "none");
-     }
- }
-/*******************collaboration***********/
-function addcollaborator(){
+        let title = document.getElementById("title").value;
+        let note = document.getElementById("note").value;
+        let noteData = {
+            "title": title,
+            "description": note,
+            "color":blue,
+            "isArchieved":true
+        }
+        if (title !== "" || note !== "") {
+            saveNote(noteData);
+        }
+        document.getElementById("title").value = "";
+        document.getElementById("note").value = "";
+    }
+    if (myid === "edit-note-btns") {
+        $(".edit-note").css("display", "none");
+    }
+}
+
+//**************update note*****************/
+document.getElementById("title").value = "";
+document.getElementById("note").value = "";
+//function update(){
+let data = {
+    "title": title,
+    "description": note
+    }
+//}
+if (myid === "edit-note-btns") {
+$(".edit-note").css("display", "none");
+}
+
+
+
+/*******************collaboration**********/
+function addcollaborator() {
     //alert('add');
-   // console.log("hii");
- console.log(document.getElementById('myModal').style)  
- document.getElementById('myModal').style.display = "block";
- document.getElementById("para-login").innerHTML=localStorage.getItem("username");
+    // console.log("hii");
+    console.log(document.getElementById('myModal').style)
+    document.getElementById('myModal').style.display = "block";
+    document.getElementById("para-login").innerHTML = localStorage.getItem("username");
 
-       // if (document.getElementById('collab-content').style.display === 'none') {
-       //     document.getElementById('collab-content').style.display = 'block';
-          // document.getElementById('collab-content').style.display = 'none';
-       // }
-       // else {
-       //     document.getElementById('collab-content').style.display = 'none';
-       //    // document.getElementById('collab-content').style.display = 'block';
-       // }
-    
+
+
 }
 //-----------------list-------------------//
-function searchEmail(){
-    alert("hii");
-    console.log(document.getElementById('email-list').style)  
- document.getElementById('email-list').style.display = "block";
-
- //document.getElementById("para-login").innerHTML=localStorage.getItem("username");
+function searchEmail() {
+    //alert("hii");
+    //console.log(document.getElementById('email-list').style)  
+    document.getElementById('email-list').style.display = "block";
+    for (let i = 0; i < data.length; i++) {
+        console.log(array[i]);
+        if (email.value.length > 2) {
+            console.log(document.getElementById('email-list').style)
+        }
+    }
+    //document.getElementById("para-login").innerHTML=localStorage.getItem("username");
 }
+
+/**************************Color Palette Function ***************************/
+function changeColor(btnId, myId) {
+    // console.log(btnId);
+    // console.log(myId);
+    var color = $("#" + btnId).css("background-color");
+    $("#" + myId).css("background-color", color);
+}
+
 /****************display data*************/
+
 function printNoteData(data) {
     let temp = "";
     let note = document.getElementById("card");
@@ -142,6 +176,7 @@ function printNoteData(data) {
                 <div class="title-div" id="card-title">${title}</div>
                 <div class="note-div" id="card-note">${description}</div>
             </div>
+            <!-------------icons---------------->
             <div class="btns-div" id="image-btns">
                 <div class="note-btns"><img src="../assets/bell_icon.png" class="note-img"></img></div>
                 <div class="note-btns"><img src="../assets/collaborate.svg" class="note-img"></div>
@@ -151,6 +186,7 @@ function printNoteData(data) {
                 <div class="note-btns" id="OpenImgUpload" onclick="upload()"><img src="../assets/add_image.svg" class="note-img"></div>
                 <div class="note-btns"><img src="../assets/archive.svg" class="note-img"></div>
                 <div class="note-btns moreBtn"><img src="../assets/more_icon.svg" class="note-img">
+              
                     <div class="dropdown">
                         <div class="dropdown-item">Delete note</div>
                         <div class="dropdown-item">Add label</div>
@@ -165,3 +201,11 @@ function printNoteData(data) {
     });
     note.innerHTML = temp;
 }
+/************************open note function ***********************/
+function openEdit(elements) {
+    console.log(elements)
+    document.getElementById("edit-note-btns").innerHTML = myBtns;
+    // document.getElementById("edit-note-btns").innerHTML = button;
+    $(".edit-note").css("display", "flex");
+}
+

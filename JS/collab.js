@@ -3,23 +3,7 @@ const lastName= document.getElementById('collab');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
 
-// const head = {
-//   headers: {
-//           // 'Accept': 'application/json',charset=UTF-8',
-//           'Content-Type': 'application/json',
-//           'Authorization': localStorage.getItem('token')
-//         }
-// }
 
-
-// function showError(input, message){
-//     const formControl = input.parentElement;
-//     formControl.className = 'form-outline error';
-//     const small = formControl.querySelector('small');
-//     small.innerText = message;
-//     error= true;
-
-// }
 
 function showSuccess(input){
     const formControl = input.parentElement;
@@ -37,6 +21,7 @@ function checkRequired(inputArr){
         
     });
 }
+
 //---------------------collaboration-----------------------//
 const collaborate =(e)=>{
     console.log("inside ")
@@ -77,7 +62,7 @@ function getEmail() {
   //---------------------search mail--------------------//
 
   var email = document.getElementById("collab-search");
-  var email = document.getElementById("email-list");
+  var email1 = document.getElementById("email-list");
 
   const searchMail =(e)=>{
     //alert("hii");
@@ -92,7 +77,23 @@ function getEmail() {
   }
  
 }
-//-------------------get search email-----------------//
+//----------------------color pallet-------------------------//
+// var color = document.getElementById("title");
+// var color = document.getElementById("note");
+// var color = document.getElementById("card");
+
+// const changeColor = () =>{
+//   console.log("color-pallet")
+//   if(true){
+//     let data = {
+//       title:,
+//       description: ,
+//       color:#jfkdj,
+//       isArchieved:true;
+//     }
+//   }
+// } 
+
 
 //-----------------------------------------------------------//
 function search(data){
@@ -100,6 +101,20 @@ function search(data){
   servicereq('user/searchUserList','get',data)
 
 }
+//----------------------delete notes---------------------//
+// var note=document.getElementById();
+// const trashNote=(id)=>{
+//   let data={
+//     "type":"module"
+//     noteIdList:[id],
+//     isDeleted:true,
+
+//   };
+//   deleteNote(data)
+// }
+// function deleteNote(data){
+//   servicereq('notes/trashNotes','post',data)
+// }
 
 //------------------------service-----------------------//
   function servicereq (url,meth,data){

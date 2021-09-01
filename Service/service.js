@@ -1,19 +1,26 @@
 const apiURL = 'http://fundoonotes.incubation.bridgelabz.com/api/';
-
+const headerConfig = {headers: { 'Authorization': `${localStorage.getItem('token')}`,  'contentType': 'application/json; charset=utf-8',}}
 /**************************GET Service Note API Call ********************************/
-$(document).ready(() => {
-    getNote();
-})
+// window.addEventListener("DOMContentLoaded", (event) => { 
+//     getNote();
+// })
 
 var tokenData = JSON.parse(localStorage.getItem("userData"));
 function getNote() {
+    console.log(headerConfig)
     let myURL = "notes/getNotesList";
-    $.ajax({
+
+    let res = $.ajax({
+
         url: apiURL + myURL,
         type: 'GET',
-        contentType: 'application/json; charset=utf-8',
+   
         dataType: 'json',
-        headers: { Authorization: `${tokenData.id}` },
+        headers: {
+            'Authorization': `${localStorage.getItem('token')}`
+        },
+        contentType: 'application/json; charset=utf-8',
+        
         success: function (data) {
             printNoteData(data);
         },
@@ -21,6 +28,7 @@ function getNote() {
             console.log(err);
         }
     })
+    return res;
 }
 
 /***************POST service Note API Call *************************/
@@ -49,5 +57,18 @@ function ajaxNotePostService(myData, myURL, successMsg, errorMsg) {
 
 function saveNote(noteData) {
     let myURL = "notes/addNotes";
-    ajaxNotePostService(noteData, myURL, "saved successful...", "failed to save...");
+    ajaxNotePostService(noteData, myURL,"saved successfully...", "failed to save...");
+    
 }
+
+
+//*****************update note******** */
+// function updateNotes(data) {
+//     let myURL = "notes/updateNotes";
+//     ajaxNotePostService(data, myURL,"updated successfully...", "failed to update...");
+// }
+//*****************trash note******** */
+// function deleteNote(data) {
+//     let myURL = "notes/trashNotes";
+//     ajaxNotePostService(data, myURL,"deleted successfully...", "failed to delete...");
+// }

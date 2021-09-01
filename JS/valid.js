@@ -142,39 +142,7 @@ function reset(data){
 
 }
 
-// const getnote =()=>{
-//   servicereq('notes/getNotesList', 'get', {})
-// }
 
-
-//service
-//  function servicereq (url,meth,data){
-//    console.log(data);
-//    fetch(baseUrl+url, {
-//    method:meth,
-//    headers: {
-//     'Content-Type': 'application/json',
-//     'Authorization': localStorage.getItem('token')
-//   },
-//    body: JSON.stringify(data),
-//             mode: 'cors',
-//             headers: {
-//               'Content-Type': 'application/json',
-//           }
-          
-//    })
-//    .then( response => response.json() )
-//    .then( result => {
-//       console.log(data)
-//      //if(page =="sigiin"){
-//       localStorage.setItem('token', data.id);
-//       //window.location.href = 'dashboard.html';
-//     // }
-//      return console.log('success:',result);
-//     } )
-//   .catch(error => {
-//      console.error('Error:', error);
-//    });
 
 //------------------------service-----------------------//
   function servicereq (url,meth,data){
@@ -191,13 +159,14 @@ function reset(data){
     .then( response => response.json() )
     .then( data => {
     console.log(data)
-    //if(page=="signin.html"){
+    //if(page=="signin"){
     localStorage.setItem('token', data.id);
     localStorage.setItem('username', data.email);
     window.location.href = 'dashboard.html';
 
     //}
   })
+ 
   
   console.log(data)
     .catch(error => {

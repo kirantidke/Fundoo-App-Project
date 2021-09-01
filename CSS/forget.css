@@ -1,169 +1,119 @@
-body{
-    width: 100%; 
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-/**************************************************** Form Here *******************************************************/
-.forget-password{
+body{
+    display: flex;
+    min-height: 100vh;
+}
+.first-container{
+    /* margin-top: 20px; */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.fundoo-tittle{
+    font-size: 26px;
+}
+
+.form-content{
     width: 100%;
 }
-/**************************************************** Image Here *******************************************************/
-.image{
+.content{
+    padding: 48px 40px 25px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(187, 185, 185);
+    border-radius: 10px;
+    width: 30rem;
+    height: 30rem;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+    
 }
-.img1{
-    font-family: 'Noto Sans', sans-serif;
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 22px;
-    padding-bottom: 16px;
-    width: 100px;
-    height: 24px;
+.title{
+    font-size:24px;
+    padding-bottom: 20px;
 }
-#f{
-    color: #1976d2;
+.title-main{
+    font-size: 14px;
 }
-#u{
-    margin-left: -5px;
-    color: #FF0000;
-}
-#n{
-    margin-left: -5px;
-    color: #FFD700;
-}
-#d{
-    margin-left: -5px;
-    color: #1976d2;
-}#o1{
-    margin-left: -5px;
-    color: #FF0000;
-}
-#o2{
-    margin-left: -5px;
-    color: #006400;
-}
-/**************************************************** Column Here *******************************************************/
-.column{
-    border: 1px solid;
-    padding: 20px 20px 30px 20px;
-    border-radius: 8px;
-    border-color: gainsboro;
-    width: 350px;
-    height: 500px;
-}
-@media only screen and (max-width: 400px){
-    .column{
-        width: 340px;
-    }
-}
-/**************************************************** Header Here *******************************************************/
-h1{
+.text-field{
     display: flex;
-    justify-content: center;
-    font-weight: 400;
-    font-family: 'Noto Sans', sans-serif;
-    color: black;
-    font-size: 24px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
 }
-/**************************************************** Label Here *******************************************************/
-label{
-    display: flex;
-    justify-content: center;
-    font-family: 'Noto Sans', sans-serif;
-    color: black;
-    font-size: 16px;
+.username{
+    margin-top: 10px;
 }
-/**************************************************** Input Field Here *******************************************************/
-#username{
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 15px;
-    align-content: flex-start;
-    display: flex;
-    height: 35px;
-    width: 340px;
-    border-width: 1px;
-    margin-top: 35px;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: gainsboro;
-    padding-left: 7px;
+.username::before{
+    content: '@gmail.com';
+    position: absolute;
+    right: 0.75em;
+    top:50%;
+    transform: translateY(-50%);
 }
-/**************************************************** Button Here *******************************************************/
-.nextBtn{
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 40px;
+.username input.form-control{
+    padding-right: 100px;
 }
-.button{
-    float: right;
-    width: 80px;
-    height: 34px;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: blue;
+.button2{
+    background-color: transparent;
+    color: #1a73e8;
+    box-shadow: none;
+    transition:  0.3s ease-in;
 }
-.button3:hover{
-    background-color: rgb(31, 31, 204);
+.button2:hover{
+    background-color:rgba(26, 115, 232, 0.281) ;
+    color: #1a73e8;
+    box-shadow: none;
+}
+.password{
+    margin-top: 10%;
+}
+.checkbox{
+    margin-top: 10%;
 }
 
-/************************************************* SnackBar Here ************************************************/
-#snackbar{
-    visibility: hidden;
-    min-width: 250px;
-    position: fixed;
-    bottom: 60px;
-    left: 50%;
-    margin-left: -125px;
-    background-color: #333;
-    padding: 16px;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    z-index: 1;
-    font-size: 17px;
+.char-text{
+    font-size: 10px;
+} 
+.sign-in{
+    margin:20% 0 25%;
+    align-items: center;
 }
-#snackbar.display{
-    visibility: visible;
-    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+.sign{
+    font-size: 14px;
+    color: rgb(41, 41, 223);
 }
-@keyframes fadeIn{
-    from{
-        bottom: 0px;
-        opacity: 0;
-    }
-    to{
-        bottom: 60px;
-        opacity: 1;
-    }
+.picture{
+    width: 150px;
+    height: 50px;
 }
-@keyframes fadeOut{
-    from{
-        bottom: 60px;
-        opacity: 1;
-    }
-    to{
-        bottom: 0;
-        opacity: 0;
-    }
+.form-outline input{
+    align-items: center;
 }
-
-/**************************************************** Error Here *******************************************************/
-#emailError{
+.form-outline input:focus{
+    outline: 0;
+    border-color: #777;
+}
+.form-outline.success input{
+    border-color: #2ecc71;
+}
+.form-outline.error input{
+    border-color: red;
+}
+.form-outline small{
     color: red;
-    text-align: start;
-}
-
-@media only screen and (max-width: 600px){
-    .column{
-        border: none;
+    position: absolute;
+    bottom: 0p;
+    left: 0;
+    visibility: hidden;
     }
+.form-outline.error small{
+visibility: visible;
 }

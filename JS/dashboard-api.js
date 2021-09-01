@@ -3,14 +3,7 @@ const title = document.getElementById('note');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
 
-//function showError(input, message){
-    //const formControl = input.parentElement;
-    //formControl.className = 'form-outline error';
-    //const small = formControl.querySelector('small');
-    //small.innerText = message;
-   // error= true;
 
-//}
 
 function showSuccess(input){
     const formControl = input.parentElement;
@@ -35,11 +28,13 @@ const addNotes = () => {
   if(true){
     let data = {                         //title &description
         "title": title.value,
-        "note": description.value
+        "descrepition": description.value,
+          "color":"#f5f5",
+         "isArchieved":true
       }
       notes(data)
   }
-  getNotes();
+  //getNotes();
   }
   function notes(data){
 
@@ -59,6 +54,8 @@ function getnotes(data){
 
   servicereq('notes/addNotes','get')
   }
+
+
  //service
  function servicereq (url,meth,data){
     console.log(data);
@@ -79,10 +76,7 @@ function getnotes(data){
     .then( data => {
       console.log(data)
 
-      // var results = document.getElementById('results')
-      // results.innerHTML = `<div><p>note is dsjfbcx xjsbjkdshc c njcjnjksdscn nmc ${data.title}</p>
-      // <p>body iscnjsakdcc bbabkdhjskjndjskanxcxbsbdjksd${data.description}</p>`
-     // localStorage.setItem('token', data.id);
+    
      var results = '';
      for(i=0; i<response.data.data.data.length; i++){
        nHTML += `<div class="item-container">
@@ -91,7 +85,7 @@ function getnotes(data){
      }
      document.getElementById("results").innerHTML = '<ul>' + results + '</ul>'  
     } )
-    //getNotes()
+    getNotes()
  
     .catch(error => {
       console.error('Error:', error);
