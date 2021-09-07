@@ -221,13 +221,7 @@ function printNoteData(data) {
     });
     note.innerHTML = temp;
 }
-/************************open note function ***********************/
-// function openEdit(elements) {
-//     console.log(elements)
-//     document.getElementById("edit-note-btns").innerHTML = myBtns;
-    // document.getElementById("edit-note-btns").innerHTML = button;
-    // $(".edit-note").css("display", "flex");
-//}
+
  function openEdit(elements) {
      console.log(elements)
         //let selectedItem = notesList[element];
