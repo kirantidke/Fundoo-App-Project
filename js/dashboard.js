@@ -212,15 +212,9 @@ function openEdit(elements) {
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log(localStorage.getItem("token"))
     let data =localStorage.getItem("token");
-    
-//     if (!data) {
-//         window.location.href = "../pages/sign_in.html";
-//     }
-//    else{
-//         window.location.href = "../pages/dashboard.html";
-        
+
         console.log(getNote())
-    //}
+    
 })
 
 /***********************sidebar**************************/
