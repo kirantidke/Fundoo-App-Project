@@ -228,9 +228,7 @@ function printNoteData(data) {
         console.log(document.getElementById('myModal1').style)
         document.getElementById('myModal1').style.display = "block";
         
-       // document.getElementById("para-login").innerHTML = localStorage.getItem("username");
-
-    //  $(".edit-note").css("display", "flex");
+    
  
 }
 
