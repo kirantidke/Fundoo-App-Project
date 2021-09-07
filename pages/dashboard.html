@@ -41,13 +41,19 @@
     <div id="snackbar"></div>
     <!-- Side Drawer -->
     <div class="myDrawer">
-        <div class="notes drawer"><img src="../assets/bulb_icon.png" alt=""><span class="drawer-span">Notes</span></div>
-        <div class="remainder drawer"><img src="../assets/bell_icon.png" alt=""><span
-                class="drawer-span">Remainder</span></div>
-        <div class="label drawer"><img src="../assets/edit_icon.png" alt=""><span class="drawer-span">Edit labels</span>
+        <div class="notes drawer">
+            <img src="../assets/bulb_icon.png" alt="">
+            <span class="drawer-span">Notes</span>
         </div>
-        <div class="archive drawer"><img src="../assets/archive_icon.png" alt=""><span
-                class="drawer-span">Archives</span></div>
+        <div class="remainder drawer">
+            <img src="../assets/bell_icon.png" alt=""><span class="drawer-span">Remainder</span>
+        </div>
+        <div class="label drawer"><img src="../assets/edit_icon.png" alt="">
+            <span class="drawer-span">Edit labels</span>
+        </div>
+        <div class="archive drawer"><img src="../assets/archive_icon.png" alt="" onclick="isArchived"><span
+                class="drawer-span">Archives</span>
+        </div>
         <div class="trash drawer"><img src="../assets/trash_icon.png" alt=""><span class="drawer-span">Trash</span>
         </div>
     </div>
@@ -55,11 +61,23 @@
     <div class="add-note" id="bg-color">
         <div class="add-note1"><input type="text" class="sub-note1 note" id="title" onclick="addNote()"
                 placeholder="Take a note..." autocomplete="off"></div>
-        <div class="add-note2"><input type="text" class="sub-note2 note" id="note" placeholder="Take a note..." autocomplete="off"></div>
-        <div class="add-note3" id="add-note-btns"></div>
+        <div class="add-note2"><input type="text" class="sub-note2 note" id="note" placeholder="Take a note..."
+                autocomplete="off"></div>
+        <div class="add-note3" id="add-note-btns">
+            <div class="btns">
+                <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
+                <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
+                <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img"></div>
+                <div class="myBtns"><img src="../assets/add_image.svg" class="my-Btn-img"></div>
+                <div class="myBtns"><img src="../assets/archive.svg" onclick="addArchieve()" class="my-Btn-img"></div>
+                <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
+            </div>
+            <button onclick="closeNote()">Close</button>
+        </div>
+
     </div>
     <!---------------------------collaborator--------------------->
-    
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
@@ -73,10 +91,9 @@
                     <p class="in">
                         <!--<img src="../assets/person-circle.svg" class="note-img" width="30"></img>-->
                         <!-- <input type="text" id="collabuser" name="fname" value="">
-            -->
-                    <div id="para-login">
-
-                    </div>
+            --> <div id="para-login">
+            
+            </div>
                     </p>
 
                     <p class="in">
@@ -84,7 +101,7 @@
                         </img>
                         <input type="text" id="collab-search" name="fname" style="border: none;"
                             oninput="searchEmail()">
-                        <div class="email-list">
+                    <div class="email-list">
                         <div class="dropdown1">
                             <div class="dropdown-item1">
                                 <ul class="dropdown-menu"></ul>
@@ -125,7 +142,7 @@
     <div id="card">
     </div>
     <!---------------update note------------------------->
-    <div class="edit-note">
+    <!-- <div class="edit-note">
         <div class="edit-note1">
             <input type="text" class="edit-sub-note1 edit" id="e-title">
         </div>
@@ -134,24 +151,64 @@
         </div>
         <div class="edit-note3" id="edit-note-btns">
         </div>
-    </div>
-    <!---------------update note----------------------->
-    <!-- <div class="edit-note">
-        <div class="edit-note1">
-            <input type="text" class="edit-sub-note1 edit" id="e-title">
-        </div>
-        <div class="edit-note2"><input type="text" class="edit-sub-note2 edit" id="e-note">
-        </div>
-        <div class="edit-note3" id="edit-note-btns">
-            
-        </div>
     </div> -->
+    <div id="myModal1" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <content class="collab" id="collab-content">
+
+                <p class="block"></p>
+                <div class="default-email" id="login-email">
+                    <p class="in">
+                        <!--<img src="../assets/person-circle.svg" class="note-img" width="30"></img>-->
+                        <!-- <input type="text" id="collabuser" name="fname" value="">
+            -->
+                    <div id="para-login">
+
+                    </div>
+                    </p>
+
+                    <p class="in">
+                        <input type="text" id="title1" name="fname" style="border: none;" placeholder="Title" +
+                            selectedItem.title1><br><br>
+                        <!-- <img src="../assets/person-circle.svg" class="note-img" width="30">
+                        </img> -->
+                        <input type="text" id="note1" + selectedItem.note1="fname" style="border: none"
+                            placeholder="Take a note">
+                    <div class="email-list">
+                        <div class="dropdown1">
+                            <div class="dropdown-item1">
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                            <div id="colab-list"></div>
+                            <!-- <div class="dropdown-item1">Add label</div> -->
+                        </div>
+                    </div>
+
+                    </p>
+
+                    <p class="block">
+                        <button type="button" onclick="updateNote()">Close</button>
+                        <!-- <button type="button" onclick="alert('Saved')">save</button> -->
+                    </p>
+                </div>
+            </content>
+
+        </div>
+
+    </div>
+
+    <!---------------update note----------------------->
+
     <!------------------js----------------------->
-      <script src="../JS/dashboard copy.js"></script> 
+    <script src="../JS/dashboard.js"></script>
+    <!-- <script src="../JS/dashboard-api.js"></script>  -->
     <script src="../Service/service.js"></script>
-    <!-- <script src="../JS/validation.js"></script> -->
+    <script src="../JS/validation.js"></script>
     <script src="../JS/popup.js"></script>
+
 </body>
 
 </html>
-
