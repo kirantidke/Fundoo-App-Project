@@ -44,23 +44,23 @@ let myPalette =
     `<div class="myPalette">
         <div class="sub-one">
             <div class="color-palette" id="1" style="background-color:#FFFFFF" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="2" style="background-color:#008000" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="3" style="background-color:#800080" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="2" style="background-color:#ccff90" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="3" style="background-color:#d7aefb" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
         </div>
         <div class="sub-two">
-            <div class="color-palette" id="4" style="background-color:#FF0000" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="5" style="background-color:#008080" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="6" style="background-color:#FFC0CB" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="4" style="background-color:#f28b82" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="5" style="background-color:#a7ffeb" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="6" style="background-color:#fdcfe8" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
         </div>                        
         <div class="sub-three">
-            <div class="color-palette" id="7" style="background-color:#FFA500" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="8" style="background-color:#0000FF" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="9" style="background-color:#A52A2A" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="7" style="background-color:#fbbc04" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="8" style="background-color:#cbf0f8" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="9" style="background-color:#e6c9a8" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
         </div>                        
         <div class="sub-four">
-            <div class="color-palette" id="10" style="background-color:#FFFF00" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="11" style="background-color:#00008B" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
-            <div class="color-palette" id="12" style="background-color:#808080" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="10" style="background-color:#fff475" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="11" style="background-color:#aecbfa" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
+            <div class="color-palette" id="12" style="background-color:#e8eaed" onclick="changeColor(this.id, $(this).parent().parent().parent().parent().parent().attr('id'))"></div>
         </div>
     </div>`
 
@@ -73,12 +73,13 @@ let myBtns = `<div class="btns">
  <div class="myBtns"><img src="../assets/archive.svg" onclick="addArchieve()" class="my-Btn-img"></div>
  <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
  </div>
-<button onclick="closeNote()">Close</button>`;
+<button onclick="updateNote()">Update</button>`;
+//document.getElementById('add-note-btns');
 
 /************************ Add Note*****************************/
 
 function addArchieve(){
-    console.log("hi")
+    //console.log("hi")
     archieve=true;
 
 }
@@ -113,7 +114,7 @@ function closeNote(myid) {
             noteData["isArchived"]=archieve
         }
         if(color!=""){
-            data["color"]=color;
+            data["color"]=color
         }
         if (title !== "" || note !== "") {
             saveNote(noteData);
@@ -129,24 +130,24 @@ function closeNote(myid) {
 //**************update note*****************/
 
 
-function updateNote() {
-    alert("update")
-    document.getElementById("title1").value = "";
-    document.getElementById("note1").value = "";
-//function update(){
-let data = {
-    "noteId":element,
-    "title": title1,
-    "description": note1
-    }
-    // if (title !== "" || note !== "") {
-         update(data); 
-    //}
+// function updateNote() {
+//     alert("update")
+//     document.getElementById("title1").value = "";
+//     document.getElementById("note1").value = "";
+// //function update(){
+// let data = {
+//     "noteId":element,
+//     "title": title1,
+//     "description": note1
+//     }
+//     if (title !== "" || note !== "") {
+//          update(data); 
+//     }
+// }
+// if (myid === "edit-note-btns") {
+// $(".edit-note").css("display", "none");
+// }
 //}
-//if (myid === "edit-note-btns") {
-$(".edit-note").css("display", "none");
-//}
-}
 /*******************collaboration**********/
 function addcollaborator() {
     //alert('add');
@@ -189,13 +190,17 @@ function printNoteData(data) {
     let note = document.getElementById("card");
     data['data']['data'].reverse();
     data['data']['data'].forEach(element => {
+
+        if(element.isArchived!=true && element.isdeleted!=true){
+        console.log(element)
         let title = element.title;
         let description = element.description;
         temp += `<div class="my-note" id="${element.id}">
-            <div class="noteFields" onclick="openEdit()">
+            <div class="noteFields" onclick="openNote('${element.title}','${element.description}','${element.id}')">
                 <div class="title-div" id="card-title">${title}</div>
                 <div class="note-div" id="card-note">${description}</div>
             </div>
+        
             <!-------------icons---------------->
             <div class="btns-div" id="image-btns">
                 <div class="note-btns"><img src="../assets/bell_icon.png" class="note-img"></img></div>
@@ -208,7 +213,7 @@ function printNoteData(data) {
                 <div class="note-btns moreBtn"><img src="../assets/more_icon.svg" class="note-img">
               
                     <div class="dropdown">
-                        <div class="dropdown-item">Delete note</div>
+                        <div class="dropdown-item" id = "trash_${element.id}" onclick="trashNotes(this)">Delete note</div>
                         <div class="dropdown-item">Add label</div>
                         <div class="dropdown-item">Add drawing</div>
                         <div class="dropdown-item">Make a copy</div>
@@ -218,17 +223,85 @@ function printNoteData(data) {
                 </div>
             </div>
         </div>`;
+    }        
     });
     note.innerHTML = temp;
+  
 }
-
- function openEdit(elements) {
-     console.log(elements)
-        //let selectedItem = notesList[element];
-        console.log(document.getElementById('myModal1').style)
-        document.getElementById('myModal1').style.display = "block";
-        
+/************************open note function ***********************/
+// let title = document.getElementById("title").value;
+// let note = document.getElementById("note").value;
+       
+// function updateNote(elements) {
+//     //alert("gggg")
+//     console.log(elements)
+   
+    // document.getElementById("edit-note-btns").innerHTML = myBtns;
+   
+    // $(".edit-note").css("display", "flex");
+    //  let data = {
+    //     "noteId":element,
+    //     "title": title,
+    //     "description": note,
     
- 
-}
+    // }
+    // update(data)
 
+    // let data = this.getAttribute("title");
+    // popup.setAttribute("title", data);
+    // // get popup new attr
+    // let popupIndex = openEdit.getAttribute("edit-note-btn");
+//}
+
+
+
+let selectedItem = notesList[element];
+
+function openNote(title,description,id){
+
+      document.getElementById("title1").value=title;
+     document.getElementById("note1").value=description;
+ 
+    // console.log(Title,description,id)
+        
+console.log(document.getElementById('myModal1').style)
+document.getElementById('myModal1').style.display = "block";
+//document.getElementById("para-login").innerHTML = localStorage.getItem("username");
+
+      $(".edit-note").css("display", "flex");
+      document.getElementById("edit-note-btns").innerHTML =`<div class="btns">
+      <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
+      <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
+      <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img">${myPalette}</div>
+      <div class="myBtns"><img src="../assets/add_image.svg" class="my-Btn-img"></div>
+      <div class="myBtns"><img src="../assets/archive.svg" onclick="addArchieve()" class="my-Btn-img"></div>
+      <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
+      </div>
+     <button onclick="updateNote('${id}')">Update</button>`
+     
+ 
+ }
+ function updateNote(id) {
+    
+    let data = {
+
+
+          "title":  document.getElementById("title1").value,
+          "description": document.getElementById("note1").value,
+          "noteId":id,
+      
+      }
+      update(data)
+  }
+ //*****************trash notes*******************/
+
+function trashNotes(e){
+    console.log(e.id)
+    let data ={
+       // "type": "module",
+       noteIdList:[e.id.split("_")[1]],
+        isDeleted:true,
+    };
+    deleteNote(data);
+    //printNoteData();
+}
