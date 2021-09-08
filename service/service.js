@@ -39,7 +39,7 @@ function ajaxNotePostService(myData, myURL, successMsg, errorMsg) {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         datatype: 'json',
-        headers: { Authorization: `${tokenData.id}` },
+        headers: { Authorization: `${localStorage.getItem('token')}` },
         data: JSON.stringify(myData),
         success: function (data) {
             console.log(data);
@@ -63,12 +63,16 @@ function saveNote(noteData) {
 
 
 //*****************update note******** */
-// function updateNotes(data) {
-//     let myURL = "notes/updateNotes";
-//     ajaxNotePostService(data, myURL,"updated successfully...", "failed to update...");
-// }
+function update(data) {
+    let myURL = "notes/updateNotes";
+    ajaxNotePostService(data, myURL,"updated successfully...", "failed to update...");
+}
 //*****************trash note******** */
-// function deleteNote(data) {
-//     let myURL = "notes/trashNotes";
-//     ajaxNotePostService(data, myURL,"deleted successfully...", "failed to delete...");
-// }
+function deleteNote(data) {
+    let myURL = "notes/trashNotes";
+    ajaxNotePostService(data, myURL,"deleted successfully...", "failed to delete...");
+}
+function addColor(data){
+    let myURL = "notes/changeColorNotes";
+    ajaxNotePostService(data, myURL,"color changed successfully...", "failed to change..."); 
+}
