@@ -2,8 +2,8 @@
 
 const firstName= document.getElementById('firstName');
 const lastName= document.getElementById('lastName');
-const username= document.getElementById('username');
-const password= document.getElementById('password');
+const userName= document.getElementById('username');
+const password1= document.getElementById('password');
 const password2= document.getElementById('password2');
 var error = false;
 const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/";
@@ -48,8 +48,8 @@ const validate =()=>{
  // checkRequired([firstName,lastName,username,password,password2]);
   if(true){
     let data = {
-        "firstName": firstName.value,
-        "lastName": lastName.value,
+        "firstName": firstname.value,
+        "lastName": lastname.value,
         "email":username.value,
         "service": "advance",
         "password": password.value
@@ -117,12 +117,35 @@ const resetvalidate =()=>{
  function registration(data){
 
     servicereq('user/userSignUp','post',data)
+     .then(data =>{
+    
+      console.log(data);
+      //showSnackBar(successMsg);
+     
+      window.location.href = 'sign_in.html';
+   })
+  .catch(error =>{
+      console.log(error)
+  })
+   //console.log(call);
+}
  
- }
+ 
  //-------------------sign in----------------------//
  function sign(data){
 
   servicereq('user/login','post',data)
+  .then(data =>{
+    console.log(data);
+      //showSnackBar(successMsg);
+      localStorage.setItem('token', data.id);
+    localStorage.setItem('username', data.email);
+    window.location.href = 'dashboard.html';
+   })
+  .catch(error =>{
+      console.log(error)
+  });
+   //console.log(call);
 
 }
 //-----------------forgot service---------------//
@@ -146,8 +169,9 @@ function reset(data){
 
 //------------------------service-----------------------//
   function servicereq (url,meth,data){
+    //let data;
     console.log(data);
-    fetch(baseUrl+url, {
+    return fetch(baseUrl+url, {
     method:meth,
     body: JSON.stringify(data),
              mode: 'cors',
@@ -159,17 +183,17 @@ function reset(data){
     .then( response => response.json() )
     .then( data => {
     console.log(data)
+    return data;
     //if(page=="signin"){
-    localStorage.setItem('token', data.id);
-    localStorage.setItem('username', data.email);
-    window.location.href = 'dashboard.html';
+    // localStorage.setItem('token', data.id);
+    // localStorage.setItem('username', data.email);
+    //window.location.href = 'dashboard.html';
 
     //}
   })
- 
-  
   console.log(data)
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    // .catch(error => {
+    //   console.error('Error:', error);
+    // });
+    // return data;
   }

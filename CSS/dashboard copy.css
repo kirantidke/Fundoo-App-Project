@@ -417,7 +417,13 @@ body {
 #palette:hover {
   display: flex;
 }
+#palette1:hover {
+  display: flex;
+}
 #palette:hover .myPalette {
+  display: flex;
+}
+#palette1:hover .myPalette {
   display: flex;
 }
 

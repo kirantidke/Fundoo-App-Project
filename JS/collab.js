@@ -106,7 +106,7 @@ function search(data){
 // const trashNote=(id)=>{
 //   let data={
 //     "type":"module"
-//     noteIdList:[id],
+//     n          `oteIdList:[id],
 //     isDeleted:true,
 
 //   };

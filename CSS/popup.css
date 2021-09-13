@@ -32,9 +32,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
   font-size: 28px;
   font-weight: bold;
 }
+.close1 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
 .close:hover,
 .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close1:hover,
+.close1:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

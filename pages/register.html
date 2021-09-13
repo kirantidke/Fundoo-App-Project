@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../CSS/register.css">
+    <!-- <script src="../JS/validation.js"></script> -->
+ 
+    <title>Create Fundoo Account</title>
+    <style>
+        .form-outline.error input{
+            border-color: #e74c3c;     
+        }
+        .form-outline small{
+        color: #e74c3c;
+        position: absolute;
+        visibility: hidden;
+        }
+
+        .form-outline.error small{
+            visibility: visible;
+         }
+         </style>
+</head>
+<body>
+    <div id="snackbar"></div>
+    <div class="register">
+        <div class="myform">
+            <form>
+                <div class="column">
+                    <div class="img1">
+                        <span id="f">F</span>
+                        <span id="u">u</span> 
+                        <span id="n">n</span>
+                        <span id="d">d</span>
+                        <span id="o1">o</span>
+                        <span id="o2">o</span>
+                    </div>
+                    <div>
+                        <h1>Create Your Fundoo Account</h1>
+                    </div>
+                    <div class="row-names">
+                        <div class="form-outline ">
+                        <div class="first-col">
+                            <input type="text" class="ip" id="firstname" name="firstname" placeholder="First name" autocomplete="off">
+                            <small>Error msg</small>
+                        </div>
+                        </div>
+                        <div class="last-col">
+                            <div class="form-outline ">
+                            <input type="text" class="ip" id="lastname" name="lastname" placeholder="Last name" autocomplete="off">
+                            <small>Error msg</small>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="email-col">
+                        <input type="text" id="username" name="username" placeholder="Username" autocomplete="off">
+                        <span id="emailError"></span>
+                    </div>
+                    <p>You can use letters, numbers & periods</p>
+                    <div class="row-pass">
+                        <div class="first-col">
+                            <div class="form-outline ">
+                            <input type="password" class="ip" id="password" name="password" placeholder="Password" autocomplete="off">
+                            <small>Error msg</small>
+                            </div>
+                        </div>
+                        <div class="last-col">
+                            <div class="form-outline ">
+                            <input type="password" class="ip" id="confirm" name="confirm" placeholder="Confirm">
+                            <small>Error msg</small>
+                        </div>
+                        </div>
+                    </div>
+                    <p>Use 8 more characters with a mix of letters, numbers & symbols</p>
+                    <div class="check-box">
+                        <input type="checkbox" id="showpass" onclick="showPassword()">
+                        <label for="showpass" id="showpass-txt">Show password</label>
+                    </div>
+                    <div class="row-btn">
+                        <div class="sign-instead">
+                            <a href="../pages/sign_in.html"><button class="button2" type="button">Sign in instead</button></a>
+                        </div>
+                        <div class="nextBtn">
+                            <button class="button3" type="button" onclick="validate()">Sign Up</button>
+                        </div>
+                    </div>  
+                </div>
+            </form>
+            <div class="image">
+                <img src="../assets/account.svg">
+                <figcaption class="figcap">One account. All of Fundoo working for you.</figcaption>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/valid.js"></script>
+    <script src="../JS/dashboard copy.js"></script>
+
+    <!-- <script src="../Service/ajax_service.js"></script> -->
+</body>
+</html>
