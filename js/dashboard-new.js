@@ -122,6 +122,7 @@ function closeNote(myid) {
     $("#card").css('top', '28%');
     $(".sub-note2").css('display', 'none');
     $(".add-note3").css('display', 'none');
+    $(".myPalette").css('background-color', 'white');
 
     let title = document.getElementById("title").value;
     let note = document.getElementById("note").value;
@@ -137,7 +138,7 @@ function closeNote(myid) {
         noteData["color"] = color
     }
     if (title !== "" || note !== "") {
-        saveNote(noteData);
+         saveNote(noteData);
         console.log(noteData)
     }
     document.getElementById("title").value = "";
@@ -172,6 +173,7 @@ function searchEmail() {
             console.log(document.getElementById('email-list').style)
         }
     }
+    search(data)
     //document.getElementById("para-login").innerHTML=localStorage.getItem("username");
 }
 
@@ -253,7 +255,7 @@ function printNoteData(data) {
     // note.innerHTML = temp;
 
 
-}
+}s
 /***********************note archieve and trash*****************/
 function icons() {
     let getIcons = ""
@@ -402,10 +404,46 @@ function openNote(title, description, id) {
 
     $(".edit-note").css("display", "flex");
 
-    document.getElementById("edit-note-btns").innerHTML = `<div class="btns">
+    document.getElementById("edit-note-btns1").innerHTML = 
+    `<div class="btns">
       <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
       <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
-      <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img">${myPalette}</div>
+      <div class="myBtns" id="palette1"><img src="../assets/color.svg" class="my-Btn-img">
+       <div class="myPalette">
+      <div class="sub-one" id="change-color">
+          <div class="color-palette" id="1" style="background-color:#FFFFFF"
+              onclick="changeColor1('#FFFFFF','${id}')"></div>
+          <div class="color-palette" id="2" style="background-color:#ccff90"
+              onclick="changeColor1('#ccff90','${id}')"></div>
+          <div class="color-palette" id="3" style="background-color:#d7aefb"
+              onclick="changeColor1('#d7aefb','${id}')"></div>
+      </div>
+      <div class="sub-two">
+          <div class="color-palette" id="4" style="background-color:#f28b82"
+              onclick="changeColor1('#f28b82','${id}')"></div>
+          <div class="color-palette" id="5" style="background-color:#a7ffeb"
+              onclick="changeColor1('#a7ffeb','${id}')"></div>
+          <div class="color-palette" id="6" style="background-color:#fdcfe8"
+              onclick="changeColor1('#fdcfe8','${id}')"></div>
+      </div>
+      <div class="sub-three">
+          <div class="color-palette" id="7" style="background-color:#fbbc04"
+              onclick="changeColor1('#fbbc04','${id}')"></div>
+          <div class="color-palette" id="8" style="background-color:#cbf0f8"
+              onclick="changeColor1('#cbf0f8','${id}')"></div>
+          <div class="color-palette" id="9" style="background-color:#e6c9a8"
+              onclick="changeColor1('#e6c9a8','${id}')"></div>
+      </div>
+      <div class="sub-four">
+          <div class="color-palette" id="10" style="background-color:#fff475"
+              onclick="changeColor1('#fff475','${id}')"></div>
+          <div class="color-palette" id="11" style="background-color:#aecbfa"
+              onclick="changeColor1('#aecbfa','${id}')"></div>
+          <div class="color-palette" id="12" style="background-color:#e8eaed"
+              onclick="changeColor1('#e8eaed','${id}')"></div>
+      </div>
+  </div>
+  </div>
       <div class="myBtns"><img src="../assets/add_image.svg" class="my-Btn-img"></div>
       <div class="myBtns"><img src="../assets/archive.svg" onclick="addArchieve()" class="my-Btn-img"></div>
       <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
@@ -447,11 +485,8 @@ function rgb(r, g, b) {
     return red + green + blue;
 }
 function changeColor(clr) {
-    //alert("hiiii")
-   // console.log(document.getElementById(id).style.backgroundColor)
-
-
-    // document.getElementById('bg-color').style
+ 
+// document.getElementById('bg-color').style
     document.getElementById('bg-color').style.backgroundColor = clr;
     //let change=document.getElementById('bg-color').style.backgroundColor;
     document.getElementById('title').style.backgroundColor = clr;
@@ -460,9 +495,28 @@ function changeColor(clr) {
     color = clr;
 
     // let data = {
-    //     noteIdList: [id],
-    //     color: document.getElementById(id).style.backgroundColor
+        
+    //     color: document.getElementById(id).style.backgroundColor,
+    //     noteIdList: [id]
     // }
-    //addColor(data)
+    // addColor(data)
 
+}
+function changeColor1(clr,id){
+    //console.log(clr,id)
+    document.getElementById('bg-color1').style.backgroundColor = clr;
+  
+    document.getElementById('title1').style.backgroundColor = clr;
+    document.getElementById('note1').style.backgroundColor = clr;
+    document.getElementById('edit-note-btns1').style.backgroundColor = clr;
+
+    color = clr;
+      let data = {
+        "noteIdList": [id],
+        "color": clr
+       
+    }
+    console.log(data)
+    addColor(data)
+    
 }
