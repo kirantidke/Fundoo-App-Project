@@ -1,5 +1,7 @@
 var archieve = "";
 var color = "";
+var searchUserList=[];
+var colabData=[];
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log(localStorage.getItem("token"))
     let data = localStorage.getItem("token");
@@ -109,9 +111,8 @@ function addNote() {
     $("#card").css('top', '40%');
     $(".sub-note2").css('display', 'block');
     $(".add-note3").css('display', 'flex');
-    // document.getElementById("add-note-btns").innerHTML = myBtns;
-    // document.getElementById("note").innerHTML = myBtns;
-    // document.getElementById("title").innerHTML = myBtns;
+    //$(".add-colab").css('display', 'none');
+  
 
 }
 function closeNote(myid) {
@@ -137,12 +138,16 @@ function closeNote(myid) {
     if (color != "") {
         noteData["color"] = color
     }
+    if(colabData.length>0){
+        noteData["collaberators"]=[JSON.stringify(colabData)]
+    }
     if (title !== "" || note !== "") {
          saveNote(noteData);
         console.log(noteData)
     }
     document.getElementById("title").value = "";
     document.getElementById("note").value = "";
+    // document.getElementById("add-note-btns").value = "";
 }
 //  if (myid === "edit-note-btns") {
 //      $(".edit-note").css("display", "none");
@@ -162,29 +167,7 @@ function addcollaborator() {
 
 }
 
-//-----------------list-------------------//
-function searchEmail() {
-    //alert("hii");
-    //console.log(document.getElementById('email-list').style)  
-    document.getElementById('email-list').style.display = "block";
-    for (let i = 0; i < data.length; i++) {
-        console.log(array[i]);
-        if (email.value.length > 2) {
-            console.log(document.getElementById('email-list').style)
-        }
-    }
-    search(data)
-    //document.getElementById("para-login").innerHTML=localStorage.getItem("username");
-}
 
-/**************************Color Palette Function ***************************/
-// function changeColor(btnId, myId) {
-//     // console.log(btnId);
-//     // console.log(myId);
-
-//     var color = $("#" + btnId).css("background-color");
-//     $("#" + myId).css("background-color", color);
-// }
 
 /****************display data*************/
 
@@ -255,7 +238,7 @@ function printNoteData(data) {
     // note.innerHTML = temp;
 
 
-}s
+}
 /***********************note archieve and trash*****************/
 function icons() {
     let getIcons = ""
@@ -505,7 +488,9 @@ function changeColor(clr) {
 function changeColor1(clr,id){
     //console.log(clr,id)
     document.getElementById('bg-color1').style.backgroundColor = clr;
-  
+    document.getElementById('login-email1').style.backgroundColor = clr;
+   // document.getElementById('collab-content').style.backgroundColor = clr;
+    document.getElementById('modal2').style.backgroundColor = clr;
     document.getElementById('title1').style.backgroundColor = clr;
     document.getElementById('note1').style.backgroundColor = clr;
     document.getElementById('edit-note-btns1').style.backgroundColor = clr;
@@ -520,3 +505,117 @@ function changeColor1(clr,id){
     addColor(data)
     
 }
+//-----------------list-------------------//
+
+function searchEmail() {
+    $(".dropdown1").css('display', 'block');
+    let email = document.getElementById("searchemail");
+    //document.getElementById('.dropdown1').style.display = "block";
+  
+
+    let data = {
+        "searchWord": email.value
+      };
+        if(email.value.length > 3){
+    search(data)
+       }
+}
+
+function selectemail(list){
+    searchUserList=list;
+    $(".dropdown1").css('display', 'block');
+    // document.getElementById("searchemail").value=searchUserList=[];
+    console.log(list)
+    let temp = ""
+    for (let i = 0; i < list.length; i++) {
+        //console.log(list[i].email)
+        temp += ` <li style="list-style-type:none">
+        <div id=` + i + ` onclick = "selectItem(id)">` + list[i].email+ `</div></li>`;
+        
+    }
+    console.log(temp)
+    document.getElementById("mail-list").innerHTML = temp;
+    
+    
+   
+  }
+  function selectItem(i){
+ document.querySelector('#searchemail').value = searchUserList[i].email;
+    colabData.push(searchUserList[i])
+  }
+  
+//   function addEmail(){
+//    alert("hii")
+//    document.getElementById('add-coloab').style.display = "block";
+//    var str;
+//    str=document.getElementById("mail-list").value;
+//    for (let i = 0; i < list.length; i++) {
+
+//     }
+    //console.log(charAt(0))
+//}
+    
+
+//   function displayArchieveNotes(displaynote){
+//     const notes = displaynote;
+//     const hasNotes = notes.length>0;
+//    placeholder.style.display=hasNotes ? "none" : "flex";
+  
+
+//    let temp = "";
+//    let note = document.getElementById("card1");
+
+   
+//             let title = element.title;
+//             let description = element.description;
+         
+
+//             temp += `<div class="my-note" id="${element.id}" >
+//             <div class="noteFields" onclick="openNote('${element.title}','${element.description}','${element.id}')" style="background-color:${element.color}">
+//                 <div class="title-div" id="card-title">${title}</div>
+//                 <div class="note-div" id="card-note">${description}</div>
+//             </div>
+//                  <!-------------icons---------------->
+//                 <div class="btns-div" id="image-btns">
+//                     <div class="note-btns"><img src="../assets/bell_icon.png" class="note-img"></img></div>
+//                     <div class="note-btns"><img src="../assets/collaborate.svg" class="note-img"></div>
+//                 </div>
+         
+//         </div>`;
+        //}
+//    });
+//     note.innerHTML = temp;
+// }
+
+//display trash notes
+
+// function displayTrashNotes(displaynote){
+//     const notes = displaynote;
+//     const hasNotes = notes.length>0;
+//    placeholder.style.display=hasNotes ? "none" : "flex";
+  
+
+//    let temp = "";
+//    let note = document.getElementById("card1");
+   
+   
+//             let title = element.title;
+//             let description = element.description;
+         
+
+//             temp += `<div class="my-note" id="${element.id}" >
+//             <div class="noteFields" onclick="openNote('${element.title}','${element.description}','${element.id}')" style="background-color:${element.color}">
+//                 <div class="title-div" id="card-title">${title}</div>
+//                 <div class="note-div" id="card-note">${description}</div>
+//             </div>
+//                  <!-------------icons---------------->
+//                 <div class="btns-div" id="image-btns">
+//                     <div class="note-btns"><img src="../assets/bell_icon.png" class="note-img"></img></div>
+//                     <div class="note-btns"><img src="../assets/collaborate.svg" class="note-img"></div>
+//                 </div>
+         
+//         </div>`;
+//         note.innerHTML = temp;
+
+// }
+ 
