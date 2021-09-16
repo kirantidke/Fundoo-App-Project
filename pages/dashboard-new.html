@@ -51,94 +51,101 @@
         <div class="label drawer"><img src="../assets/edit_icon.png" alt="">
             <span class="drawer-span">Edit labels</span>
         </div>
-        <div class="archive drawer"><img src="../assets/archive_icon.png" alt="" onclick="isArchived"><span
+        <div class="archive drawer"><img src="../assets/archive_icon.png" alt="" onclick="displayArchieveNote()"><span
                 class="drawer-span">Archives</span>
         </div>
-        <div class="trash drawer"><img src="../assets/trash_icon.png" alt=""><span class="drawer-span">Trash</span>
+        <div class="trash drawer"><img src="../assets/trash_icon.png" alt="" onclick="displayTrashNotes()"><span
+                class="drawer-span">Trash</span>
         </div>
     </div>
     <!------------------------note---------------------->
     <div class="add-note" id="bg-color">
 
         <div class="add-note1">
-            <input type="text" class="sub-note1 note" id="title" onclick="addNote()"
-                placeholder="Take a note..." autocomplete="off">
-            </div>
-        <div class="add-note2">
-            <input type="text" class="sub-note2 note" id="note" placeholder="Take a note..."
+            <input type="text" class="sub-note1 note" id="title" onclick="addNote()" placeholder="Take a note..."
                 autocomplete="off">
-            </div>
-            
+        </div>
+        <div class="add-note2">
+            <input type="text" class="sub-note2 note" id="note" placeholder="Take a note..." autocomplete="off">
+        </div>
+        <!--------adding colab------->
+        <div class="addcolab" id="addcolab">
+            <!-- <div class="circle" id="citcle-colab">K</div> -->
+        </div>
         <div class="add-note3" id="add-note-btns">
             <div class="btns">
                 <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
-                <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
-               <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img">
-                <div class="myPalette">
-                    <div class="sub-one" id="change-color">
-                        <div class="color-palette" id="1" style="background-color:#FFFFFF" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="2" style="background-color:#ccff90" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="3" style="background-color:#d7aefb" onclick="changeColor(this.id)"></div>
-                    </div>
-                    <div class="sub-two">
-                        <div class="color-palette" id="4" style="background-color:#f28b82" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="5" style="background-color:#a7ffeb" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="6" style="background-color:#fdcfe8" onclick="changeColor(this.id)"></div>
-                    </div>                        
-                    <div class="sub-three">
-                        <div class="color-palette" id="7" style="background-color:#fbbc04" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="8" style="background-color:#cbf0f8" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="9" style="background-color:#e6c9a8" onclick="changeColor(this.id)"></div>
-                    </div>                        
-                    <div class="sub-four">
-                        <div class="color-palette" id="10" style="background-color:#fff475" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="11" style="background-color:#aecbfa" onclick="changeColor(this.id)"></div>
-                        <div class="color-palette" id="12" style="background-color:#e8eaed" onclick="changeColor(this.id)"></div>
+                <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img">
+                </div>
+                <div class="myBtns" id="add-note-palette"><img src="../assets/color.svg" class="my-Btn-img">
+                    <div class="myPalette">
+                        <div class="sub-one" id="change-color">
+                            <div class="color-palette" id="1" style="background-color:#FFFFFF"
+                                onclick="changeColor('#FFFFFF')"></div>
+                            <div class="color-palette" id="2" style="background-color:#ccff90"
+                                onclick="changeColor('#ccff90')"></div>
+                            <div class="color-palette" id="3" style="background-color:#d7aefb"
+                                onclick="changeColor('#d7aefb')"></div>
+                        </div>
+                        <div class="sub-two">
+                            <div class="color-palette" id="4" style="background-color:#f28b82"
+                                onclick="changeColor('#f28b82')"></div>
+                            <div class="color-palette" id="5" style="background-color:#a7ffeb"
+                                onclick="changeColor('#a7ffeb')"></div>
+                            <div class="color-palette" id="6" style="background-color:#fdcfe8"
+                                onclick="changeColor('#fdcfe8')"></div>
+                        </div>
+                        <div class="sub-three">
+                            <div class="color-palette" id="7" style="background-color:#fbbc04"
+                                onclick="changeColor('#fbbc04')"></div>
+                            <div class="color-palette" id="8" style="background-color:#cbf0f8"
+                                onclick="changeColor('#cbf0f8')"></div>
+                            <div class="color-palette" id="9" style="background-color:#e6c9a8"
+                                onclick="changeColor('#e6c9a8')"></div>
+                        </div>
+                        <div class="sub-four">
+                            <div class="color-palette" id="10" style="background-color:#fff475"
+                                onclick="changeColor('#fff475')"></div>
+                            <div class="color-palette" id="11" style="background-color:#aecbfa"
+                                onclick="changeColor('#aecbfa')"></div>
+                            <div class="color-palette" id="12" style="background-color:#e8eaed"
+                                onclick="changeColor('#e8eaed')"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="myBtns"><img src="../assets/add_image.svg" class="my-Btn-img"></div>
                 <div class="myBtns"><img src="../assets/archive.svg" onclick="addArchieve()" class="my-Btn-img"></div>
                 <div class="myBtns"><img src="../assets/more_icon.svg" class="my-Btn-img"></div>
+                <button onclick="closeNote()">Close</button>
             </div>
-            <button onclick="closeNote()">Close</button>
+
         </div>
+        <!---------------------------collaborator--------------------->
 
-    </div>
-    <!---------------------------collaborator--------------------->
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <content class="collab" id="collab-content">
-
-                <p class="block">Collaboraters</p>
-                <div class="default-email" id="login-email">
-                    <p class="in">
-                        <!--<img src="../assets/person-circle.svg" class="note-img" width="30"></img>-->
-                        <!-- <input type="text" id="collabuser" name="fname" value="">
-            --> <div id="para-login">
-            
-            </div>
-                    </p>
-
-                    <p class="in">
-                        <img src="../assets/person-circle.svg" class="note-img" width="30">
-                        </img>
-                        <input type="text" id="collab-search" name="fname" style="border: none;"
-                            oninput="searchEmail()">
-                    <div class="email-list">
-                        <div class="dropdown1">
-                            <div class="dropdown-item1">
-                                <ul class="dropdown-menu"></ul>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <content class="collab" id="collab-content">
+                    <p class="block">Collaboraters</p>
+                    <div class="default-email" id="login-email">
+                        <p class="in">
+                        <div id="para-login"></div>
+                        </p>
+                        <p class="in">
+                            <img src="../assets/person-circle.svg" class="note-img" width="30">
+                            </img>
+                            <input type="text" id="searchemail" name="fname" value="" autocomplete="off"
+                                style="border: none;" oninput="searchEmail()">
+                        <div class="email-list">
+                            <div class="dropdown1">
+                                <!--<select>-->
+                                <div class="dropdown-item1">
+                                    <ul class="dropdown-menu" id="mail-list"></ul>
+                                </div>
+                                <div id="colab-list"></div>
                             </div>
-                            <div id="colab-list">
-
-                            </div>
-                            <!-- <div class="dropdown-item1">Add label</div> -->
+                            <!-- </select> -->
                         </div>
                     </div>
 
@@ -146,86 +153,99 @@
 
                     <p class="block">
                         <button type="button" onclick="alert('canceled')">Cancel</button>
-                        <button type="button" onclick="alert('Saved')">save</button>
+                        <button type="button" onclick="addEmailToCollab()">save</button>
                     </p>
-                </div>
+            </div>
             </content>
+
+        </div>
+        <div class="edit-note3" id="edit-note-btns">
 
         </div>
 
     </div>
+    <!---------------collaborator for update note---------->
+    <div id="myModal-colab" class="modal-colab">
+        <div class="modal-content">
+            <span class="close3">&times;</span>
+            <content class="collab" id="collab-content">
+                <p class="block">Collaboraters</p>
+                <div class="default-email" id="login-email">
+                    <p class="in">
+                    <div id="para-login1"></div>
+                    </p>
+                    <p class="in">
+                        <img src="../assets/person-circle.svg" class="note-img" width="30">
+                        </img>
+                        <input type="text" id="searchemail" name="fname" value="" autocomplete="off"
+                            style="border: none;" oninput="searchEmail()">
+                    <div class="email-list">
+                        <div class="dropdown1">
+                            <!--<select>-->
+                            <div class="dropdown-item">
+                                <ul class="dropdown-menu" id="mail-list"></ul>
+                            </div>
+                            <div id="colab-list"></div>
+                        </div>
+                        <!-- </select> -->
+                    </div>
+                </div>
 
-    <!-- </div>
-            </div>
+                </p>
 
-            </p>
-
-            <p class="block">
-                <button type="button" onclick="alert('canceled')">Cancel</button>
-                <button type="button" onclick="alert('Saved')">save</button>
-            </p>
+                <p class="block">
+                    <button type="button" onclick="alert('canceled')">Cancel</button>
+                    <button type="button" onclick="addCollabToDisplay()">save</button>
+                </p>
         </div>
-    </content> -->
+        </content>
+
+    </div>
+    <div class="edit-note3" id="edit-note-btns">
+
+    </div>
+
+</div>
+
+
+
     <!------------------------Card ---------------------->
     <input type="file" id="imgupload" style="display:none" />
     <div id="card">
+        <div></div>
     </div>
     <!---------------update note------------------------->
-     <!-- <div class="edit-note">
-        <div class="edit-note1">
-            <input type="text" class="edit-sub-note1 edit" id="e-title">
-        </div>
-        <div class="edit-note2">
-            <input type="text" class="edit-sub-note2 edit" id="e-note">
-        </div>
-        <div class="edit-note3" id="edit-note-btns">
-        </div>
-    </div> -->
+
 
     <div id="myModal1" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <content class="collab" id="collab-content">
-
+        <div class="modal-content" id="modal2">
+            <span class="close1">&times;</span>
+            <content class="collab" id="collab-content1">
                 <p class="block"></p>
-                <div class="default-email" id="login-email">
+                <div class="default-email" id="login-email1">
                     <p class="in">
-                        <!--<img src="../assets/person-circle.svg" class="note-img" width="30"></img>-->
-                        <!-- <input type="text" id="collabuser" name="fname" value="">
-            -->
-                     <div id="para-login">
-
-                    </div>
+                    <div id="para-login"></div>
                     </p>
 
                     <p class="in">
-                        <input type="text" id="title1" name="fname" style="border: none;" placeholder="Title" +
-                            selectedItem.title><br><br> 
-                        <!-- <img src="../assets/person-circle.svg" class="note-img" width="30">
-                        </img> -->
-                         <input type="text" id="note1" + selectedItem.description="fname" style="border: none"
+                    <div class="bg-color1" id="bg-color1">
+                        <input type="text" id="title1" name="fname" style="border: none;" placeholder="Title"
+                            +selectedItem.title><br><br>
+                        <input type="text" id="note1" + selectedItem.description="fname" style="border: none"
                             placeholder="Take a note">
-                            <div class="edit-note3" id="edit-note-btns"></div>
-
-                     
-                            <!-- <div class="dropdown-item1">Add label</div> -->
-                        <!-- </div>
+                            <div class="addcolab" id="addcolab">
+                                 <div class="circle3" id="circle-colab">K</div>
+                            </div>
+                        <div class="edit-note3" id="edit-note-btns1"></div>
+                        </p>
                     </div>
-
-                    </p>
-
-                    <p class="block">
-                        <button type="button" onclick="updateNote()">Close</button>
-                        <button type="button" onclick="alert('Saved')">save</button> -->
-                    <!-- </p>
                 </div>
             </content>
 
         </div>
+    </div>
 
-    </div> -->
+
 
     <!---------------update note----------------------->
 
@@ -235,7 +255,8 @@
     <script src="../Service/service.js"></script>
     <script src="../JS/validation.js"></script>
     <script src="../JS/popup.js"></script>
-    
+
+
     <!-- <script src="../JS/update.js"></script> -->
 </body>
 

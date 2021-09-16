@@ -2,18 +2,13 @@ var archieve = "";
 var color = "";
 var searchUserList=[];
 var colabData=[];
+var displayCollab=[];
+var searchUserList1=[];
+
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log(localStorage.getItem("token"))
-    let data = localStorage.getItem("token");
-
-    //     if (!data) {
-    //         window.location.href = "../pages/sign_in.html";
-    //     }
-    //    else{
-    //         window.location.href = "../pages/dashboard.html";
-
-    //console.log(getNote())
-    //}
+    // let data = localStorage.getItem("token");
+    getNote();
 })
 
 /***********************sidebar**************************/
@@ -101,9 +96,9 @@ function showPass() {
 /************************ Add Note*****************************/
 
 function addArchieve() {
-    //console.log("hi")
+
     archieve = true;
-    //commonNotes(data, "archievenotes")
+    
 }
 function addNote() {
     $(".sub-note1").attr('placeholder', 'Title');
@@ -119,11 +114,15 @@ function closeNote(myid) {
     console.log("added")
     //if (myid === "add-note-btns") {
     $(".sub-note1").attr('placeholder', 'Take a note...');
-    $(".add-note").css('height', '45px');
+    $(".add-note").css('height', '50px');
     $("#card").css('top', '28%');
     $(".sub-note2").css('display', 'none');
     $(".add-note3").css('display', 'none');
-    $(".myPalette").css('background-color', 'white');
+    $(".add-note31").css('display', 'none');
+   
+    let myColor = document.querySelector("#title");
+    myColor.style.backgroundColor = "white"; 
+    $(".circle").css('display', 'none');   
 
     let title = document.getElementById("title").value;
     let note = document.getElementById("note").value;
@@ -141,12 +140,14 @@ function closeNote(myid) {
     if(colabData.length>0){
         noteData["collaberators"]=[JSON.stringify(colabData)]
     }
+    
     if (title !== "" || note !== "") {
          saveNote(noteData);
         console.log(noteData)
     }
     document.getElementById("title").value = "";
     document.getElementById("note").value = "";
+    colabData=[];
     // document.getElementById("add-note-btns").value = "";
 }
 //  if (myid === "edit-note-btns") {
@@ -162,6 +163,13 @@ function addcollaborator() {
     console.log(document.getElementById('myModal').style)
     document.getElementById('myModal').style.display = "block";
     document.getElementById("para-login").innerHTML = localStorage.getItem("username");
+}
+function addcollaboratorDisplay() {
+    //alert('add');
+    // console.log("hii");
+    console.log(document.getElementById('myModal-colab').style)
+    document.getElementById('myModal-colab').style.display = "block";
+    document.getElementById("para-login1").innerHTML = localStorage.getItem("username");
 
 
 
@@ -312,13 +320,24 @@ function commonNotes(data, noteString) {
             console.log(element.isArchived, element.isDeleted)
             let title = element.title;
             let description = element.description;
-         
+            //let collaborators = element.collaborators;
+            let temp1="";
+            //let collabora
+            for(let j=0;j<element.collaborators.length;j++){
+                temp1+=`<div class="circle1" id="circle-colab">`+element.collaborators[j].email.charAt(0)+`</div>`
+            }
 
             temp += `<div class="my-note" id="${element.id}" >
             <div class="noteFields" onclick="openNote('${element.title}','${element.description}','${element.id}')" style="background-color:${element.color}">
                 <div class="title-div" id="card-title">${title}</div>
                 <div class="note-div" id="card-note">${description}</div>
-            </div>
+                <div class="addcolab3" id="addcolab3">
+                </div>`
+
+                if(element.collaborators.length>0){
+               temp+= `<div>`+temp1+`</div>`
+                }
+            temp+=`</div>
             
         
             <!-------------icons---------------->`
@@ -326,29 +345,29 @@ function commonNotes(data, noteString) {
             temp += //icons(data,noteString)//
                 `<div class="btns-div" id="image-btns">
                 <div class="note-btns"><img src="../assets/bell_icon.png" class="note-img"></img></div>
-                <div class="note-btns"><img src="../assets/collaborate.svg" class="note-img"></div>
+                <div class="note-btns"><img src="../assets/collaborate.svg" onclick="addcollaboratorDisplay()" class="note-img"></div>
                 <div class="note-btns" id="palette"><img src="../assets/color.svg" class="note-img">
                 
-                <div class="myPalette">
-                <div class="sub-one" id="change-color">
-                    <div class="color-palette" id="1" style="background-color:#FFFFFF" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="2" style="background-color:#ccff90" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="3" style="background-color:#d7aefb" onclick="changeColor(this.id)"></div>
+                <div class="myPalette1">
+                <div class="sub-one1" id="change-color">
+                    <div class="color-palette" id="1" style="background-color:#FFFFFF" onclick="changeColor1('#FFFFFF','${element.id}')"></div>
+                    <div class="color-palette" id="2" style="background-color:#ccff90" onclick="changeColor1('#ccff90','${element.id}')"></div>
+                    <div class="color-palette" id="3" style="background-color:#d7aefb" onclick="changeColor1('#d7aefb','${element.id}')"></div>
                 </div>
                 <div class="sub-two">
-                    <div class="color-palette" id="4" style="background-color:#f28b82" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="5" style="background-color:#a7ffeb" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="6" style="background-color:#fdcfe8" onclick="changeColor(this.id)"></div>
+                    <div class="color-palette" id="4" style="background-color:#f28b82" onclick="changeColor1('#f28b82','${element.id}')"></div>
+                    <div class="color-palette" id="5" style="background-color:#a7ffeb" onclick="changeColor1('#a7ffeb','${element.id}')"></div>
+                    <div class="color-palette" id="6" style="background-color:#fdcfe8" onclick="changeColor1('#fdcfe8','${element.id}')"></div>
                 </div>                        
                 <div class="sub-three">
-                    <div class="color-palette" id="7" style="background-color:#fbbc04" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="8" style="background-color:#cbf0f8" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="9" style="background-color:#e6c9a8" onclick="changeColor(this.id)"></div>
+                    <div class="color-palette" id="7" style="background-color:#fbbc04" onclick="changeColor1('#fbbc04','${element.id}')"></div>
+                    <div class="color-palette" id="8" style="background-color:#cbf0f8" onclick="changeColor1('#cbf0f8','${element.id}')"></div>
+                    <div class="color-palette" id="9" style="background-color:#e6c9a8" onclick="changeColor1('#e6c9a8','${element.id}')"></div>
                 </div>                        
                 <div class="sub-four">
-                    <div class="color-palette" id="10" style="background-color:#fff475" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="11" style="background-color:#aecbfa" onclick="changeColor(this.id)"></div>
-                    <div class="color-palette" id="12" style="background-color:#e8eaed" onclick="changeColor(this.id)"></div>
+                    <div class="color-palette" id="10" style="background-color:#fff475" onclick="changeColor1('#fff475','${element.id}')"></div>
+                    <div class="color-palette" id="11" style="background-color:#aecbfa" onclick="changeColor1('#aecbfa','${element.id}')"></div>
+                    <div class="color-palette" id="12" style="background-color:#e8eaed" onclick="changeColor1('#e8eaed','${element.id}')"></div>
                 </div>
             </div> 
                 </div> 
@@ -390,7 +409,7 @@ function openNote(title, description, id) {
     document.getElementById("edit-note-btns1").innerHTML = 
     `<div class="btns">
       <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
-      <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaborator()" class="my-Btn-img"></div>
+      <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaboratorDisplay()" class="my-Btn-img"></div>
       <div class="myBtns" id="palette1"><img src="../assets/color.svg" class="my-Btn-img">
        <div class="myPalette">
       <div class="sub-one" id="change-color">
@@ -445,7 +464,11 @@ function updateNote(id) {
         "noteId": id,
 
     }
+    if(displayCollab.length>0){
+        data["collaberators"]=[JSON.stringify(displayCollab)]
+    }
     update(data)
+    $(".modal-content").css("display", "none");
 }
 //*****************trash notes*******************/
 
@@ -505,6 +528,7 @@ function changeColor1(clr,id){
     addColor(data)
     
 }
+
 //-----------------list-------------------//
 
 function searchEmail() {
@@ -528,7 +552,7 @@ function selectemail(list){
     console.log(list)
     let temp = ""
     for (let i = 0; i < list.length; i++) {
-        //console.log(list[i].email)
+        console.log(list[i].email)
         temp += ` <li style="list-style-type:none">
         <div id=` + i + ` onclick = "selectItem(id)">` + list[i].email+ `</div></li>`;
         
@@ -542,18 +566,85 @@ function selectemail(list){
   function selectItem(i){
  document.querySelector('#searchemail').value = searchUserList[i].email;
     colabData.push(searchUserList[i])
+    $(".dropdown1").css('display', 'none');
   }
   
-//   function addEmail(){
-//    alert("hii")
-//    document.getElementById('add-coloab').style.display = "block";
-//    var str;
-//    str=document.getElementById("mail-list").value;
-//    for (let i = 0; i < list.length; i++) {
+  
+  function addEmailToCollab(){
+   //alert("hii")
+   //document.getElementById("addcolab").value;
+   $(".modal").css('display', 'none');
+       
 
-//     }
-    //console.log(charAt(0))
-//}
+        let temp=""
+        for(i=0;i<colabData.length;i++){
+            console.log(colabData[i].email)
+            temp+=`<div class="circle" id="circle-colab">`+colabData[i].email.charAt(0)+`</div>
+            <div class="add-note31">
+                 <div>`
+        }document.getElementById("addcolab").innerHTML=temp;
+        
+        $(".circle").css('display', 'block');
+        // document.getElementById("add-note-btns").innerHTML=temp;
+        // $(".add-note3").css('display', 'block');
+    }
+
+    //-------------collaborator for display note------------//
+    // function searchEmail1() {
+    //     $(".dropdown1").css('display', 'block');
+    //     let email = document.getElementById("searchemail");
+        //document.getElementById('.dropdown1').style.display = "block";
+      
+    
+    //     let data = {
+    //         "searchWord": email.value
+    //       };
+    //         if(email.value.length > 3){
+    //     search(data)
+    //        }
+    // }
+    
+    // function selectemail1(list){
+    //     searchUserList1=list1;
+    //     $(".dropdown1").css('display', 'block');
+        // document.getElementById("searchemail").value=searchUserList=[];
+        // console.log(list1)
+        // let temp = ""
+        // for (let i = 0; i < list.length; i++) {
+        //     console.log(list1[i].email)
+        //     temp += ` <li style="list-style-type:none">
+        //     <div id=` + i + ` onclick = "selectItem1(id)">` + list1[i].email+ `</div></li>`;
+            
+        // }
+        // console.log(temp)
+        // document.getElementById("mail-list").innerHTML = temp;
+        
+        
+       
+    //   }
+    //   function selectItem1(i){
+    //  document.querySelector('#searchemail').value = searchUserList1[i].email;
+    //     colabData.push(searchUserList1[i])
+    //     $(".dropdown1").css('display', 'none');
+    //   }
+      
+
+    function addCollabToDisplay(){
+       
+        //document.getElementById("addcolab").value;
+         $(".modal-colab").css('display', 'none');
+       let temp=""
+              for(i=0;i<displayCollab.length;i++){
+                 console.log(displayCollab[i].email)
+                 temp+=`<div class="circle3" id="circle-colab3">`+displayCollab[i].email.charAt(0)+`</div>
+                       <div>`
+              }document.getElementById("addcolab3").innerHTML=temp;
+             
+             $(".circle3").css('display', 'block');
+           
+         }
+   
+    
     
 
 //   function displayArchieveNotes(displaynote){

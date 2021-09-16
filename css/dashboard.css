@@ -1,423 +1,780 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    font-family: 'Roboto', sans-serif;
-}
-.searchInput{
-    width: 600px !important;
-    background: #f1f3f4;
-    border: none;
-}
-.icon_flex{
-    display: flex;
-    align-items: center;
-    padding-right: 60px;
-}
-.navbar-brand h2{
-    font-size: 22px;
-    font-weight: 400;
-}
-.header_nav{
-    background-color: rgba(255,255,255,1);
-    border-bottom: 1px solid #d0d0d0;
-}
-.nav-icons{
-    display: flex;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    align-items: center;
-    cursor: pointer;
-}
-.nav-icons:hover{
-    opacity: 0.87;
-    background-color: rgba(95,99,104,0.157);
-}
-.nav-icons span{
-    text-align: center;
-    width: 100%;
-    font-size: 16px;
-}
-
-
-
-
-
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 69px;
-  height: 100%;
-  width: 78px;
-  background: #fff;
-  padding: 6px 14px;
-  z-index: 99;
-  /* transition: all 0.5s ease; */
-}
-.sidebar li img{
-  height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    border-radius: 12px;
-}
-
-
-
-.sidebar i {
-  color: #fff;
-  height: 60px;
-  min-width: 50px;
-  font-size: 28px;
-  text-align: center;
-  line-height: 60px;
-}
-.sidebar .nav-list {
-  margin-top: 20px;
-  height: 100%;
-}
-.sidebar li {
-  position: relative;
-  margin: 8px 0;
-  list-style: none;
-}
-
-
-.sidebar li a {
-  display: flex;
-  height: 100%;
+body {
   width: 100%;
-  border-radius: 50%;
-  align-items: center;
-  text-decoration: none;
-  /* transition: all 0.4s ease; */
-  background: rgb(255, 255, 254)
-}
-/* .sidebar li a:hover {
-  background: #FFF;
-} */
-.sidebar li a:hover .links_name {
-  /* transition: all 0.5s ease; */
-  color: #8b8b8b;
-}
-.sidebar li a:hover i {
-  /* transition: all 0.5s ease; */
-  color: #8b8b8b;
-}
-.sidebar li a .links_name {
-  color: rgb(82, 80, 80);
-  font-size: 15px;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  /* transition: 0.4s; */
-}
-.sidebar li i {
-  height: 50px;
-  line-height: 50px;
-  font-size: 25px;
-  border-radius: 12px;
+  height: 100vh;
+  margin: 0;
 }
 
-/****toggle function****/
-
-
-.sidebar.open {
-    width: 300px;
-}
-
-
-.sidebar.open li .tooltip {
-  display: none;
-}
-.sidebar.open li a .links_name {
-  opacity: 1;
-
-}
-
-.sidebar.open  .home-section {
-  left: 300px;
-  width: calc(100% - 300px);
-}
-.sidebar.open  li a{
-    border-radius: 0 25px 25px 0 !important;
-}
-.sidebar ul li i{
-  color: #5f6368;
-}
-
-main {
-  margin: 0 auto;
-  max-width: 900px;
-}
-
-#placeholder {
-  margin-top: 10vh !important;
+/*************************************************** NavBar Here *********************************************/
+.navbar {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
   align-items: center;
-  flex-direction: column;
+  border-bottom: 1px solid gainsboro;
 }
 
-#placeholder-logo {
-  height: 120px;
-  margin: 20px;
-  opacity: 0.1;
-  width: 120px;
-}
-
-#placeholder-text {
-  color: #80868b;
-  cursor: default;
-  font-size: 1.375rem;
-  font-weight: 400;
-  line-height: 1.75rem;
-}
-
-#form-container {
-  border-radius: 8px;
-  border: 0.5px solid #d3d3d3;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
-    0 2px 6px 2px rgba(60, 64, 67, 0.149);
-  margin: 60px auto 16px auto;
-  max-width: 496px;
-  transition-duration: 0.218s;
-  transition-property: background, border, opacity, box-shadow, transform;
-  transition-timing-function: ease-in;
-}
-
-#form {
-  position: relative;
-  border: none;
-  margin: 1px;
-  border-radius: 8px;
-  transition-duration: 0.218s;
-  transition-property: background, border, opacity, box-shadow, transform;
-  transition-timing-function: ease-in;
-}
-
-.form-open {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-header {
+.subnav-one {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 2em;
-}
-
-.header-logo {
-  height: 4em;
-}
-
-.header-title {
-  color: #5f6368;
-  font-size: 2rem;
-  padding-top: 4px;
-  padding-left: 4px;
-}
-
-#notes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px;
-}
-
-#note-text {
-  width: calc(100% - 10px);
-  min-height: 43px;
-  margin: 0 5px;
-  padding: 10px 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
-  letter-spacing: 0.00625em;
-  border: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.modal-title {
-  width: calc(100% - 10px);
-  min-height: 43px;
-  margin: 0 5px;
-  font-weight: 500;
-  line-height: 1.5rem;
-  letter-spacing: 0.00625em;
-  border: 0;
-  overflow: hidden;
-  position: relative;
-  font-size: 1.375rem;
-  font-weight: 400;
-  line-height: 1.75rem;
-  padding-bottom: 12px;
-  padding-top: 16px;
-}
-
-.modal-text {
-  width: calc(100% - 10px);
-  min-height: 43px;
-  margin: 0 5px;
-  padding: 10px 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  letter-spacing: 0.00625em;
-  border: 0;
-  overflow: hidden;
-  position: relative;
-  color: #202124;
-  font-size: 14px;
-  line-height: 19px;
-  min-height: 46px;
-  padding: 4px 16px 12px 0px;
-}
-
-#note-title {
-  display: none;
-  width: calc(100% - 10px);
-  min-height: 43px;
-  margin: 0 5px;
-  padding: 10px 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  border: 0;
-}
-
-#form:focus,
-input:focus {
-  outline: none;
-}
-
-#placeholder {
-  margin-top: 20vh;
-  display: flex;
+  width: 15%;
+  height: 45px;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
 }
 
-#form-buttons {
-  display: none;
-  /* text-align: right; */
-}
-.note-icons{
-  padding-left: 17px;
-    padding-top: 10px;
-}
-.note-icons span{
-  padding: 0px 10px;
-  color: #5f6368;
-  font-size: 18px !important;
-}
-.note-icons .material-icons{
-  font-size: 18px !important;
-}
-.note-icons span:first-child{
-  padding :0px !important;
-}
-.note-icons span:last-child{
-  padding :0px !important;
+.subnav-two {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
 }
 
+.keep-img {
+  width: 26px;
+  height: 35px;
+}
 
-#form-close-button {
-  margin: 0.2em 0;
+.keep-txt {
+  font-size: 22px;
+  padding-left: 20px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  margin-left: -10%;
+  margin-right: 10%;
+  width: 24px;
+  cursor: pointer;
+}
+
+.searchBar {
+  width: 80%;
   box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.87);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  letter-spacing: 0.01785714em;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.25rem;
-  height: 36px;
-  padding: 8px 24px;
-  border-radius: 4px;
-  border-color: transparent !important;
-  background-color: rgb(251, 251, 251);
+  border: none;
+  background-color: #f1f3f4;
+  border-radius: 8px;
+  font-size: 16px;
+  background-position: 10px 10px;
+  padding: 12px 20px 12px 40px;
+  background-image: url("../assets/search_icon.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
 }
 
-#submit-button {
-  color: #fff;
-  background-color: #007bff;
+.subnav-three {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2%;
+  outline: none;
+  background-color: transparent;
 }
 
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 
-#form-close-button:hover {
-  filter: brightness(95%);
+/*************************************************** Side Drawer Here *********************************************/
+.myDrawer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 65px;
+  height: 500px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+.myDrawer .notes, .myDrawer .remainder, .myDrawer .label, .myDrawer .archive, .myDrawer .trash {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+}
+.myDrawer .notes .drawer-span, .myDrawer .remainder .drawer-span, .myDrawer .label .drawer-span, .myDrawer .archive .drawer-span, .myDrawer .trash .drawer-span {
+  align-items: center;
+  display: none;
+}
+.myDrawer .notes {
+  background-color: #feefc3;
+}
+.myDrawer img {
+  display: flex;
+  justify-content: center;
+  margin: 12px;
+}
+.myDrawer div:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0 25px 25px 0;
+  height: 48px;
+}
+.myDrawer div:hover .drawer-span {
+  display: flex;
+  margin-left: 40px;
+}
+
+/************************************************* SnackBar Here ************************************************/
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  margin-left: -125px;
+  background-color: #333;
+  padding: 16px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  font-size: 17px;
+}
+
+#snackbar.display {
+  visibility: visible;
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    bottom: 0px;
+    opacity: 0;
+  }
+  to {
+    bottom: 60px;
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    bottom: 60px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+/*************************************************** User Profile Info Here *********************************************/
+.userProfile {
+  display: none;
+}
+.userProfile .myProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 160px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  float: right;
+  margin-right: 5px;
+}
+.userProfile .myProfile .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 8px 0 5px 0;
+}
+.userProfile .myProfile #name {
+  margin-bottom: 5px;
+}
+.userProfile .myProfile #mail {
+  margin-bottom: 15px;
+}
+.userProfile .myProfile button {
+  width: 100px;
+  height: 25px;
+  text-decoration: none;
+}
+
+/*************************************************** Add Note Here *********************************************/
+.add-note {
+  position: absolute;
+  top: 16%;
+  left: 22%;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px #e0e0e0;
+  /* height: 180px; */
 }
 
 .note {
+  width: 600px;
+  height: 45px;
+  font-family: "Noto Sans", sans-serif;
+  text-decoration-color: gainsboro;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding-left: 12px;
+}
+
+.sub-note2 {
+  display: none;
+  border: none;
+  outline: none;
+}
+
+.sub-note3 {
+  display: none;
+  border: none;
+  outline: none;
+}
+
+.add-note3 {
+  display: none;
+  flex-direction: row;
+}
+.add-note3 .btns {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 100px;
+}
+.add-note31 .btns {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 100px;
+}
+
+.add-note3 .btns .myBtns {
+  width: 34px;
+  height: 50px;
+  margin: 0 8px;
+}
+.add-note31 .btns .myBtns {
+  width: 34px;
+  height: 50px;
+  margin: 0 8px;
+}
+.add-note3 button {
+  width: 80px;
+  height: 35px;
+  padding: 8px 20px;
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  float: right;
+  margin-right: 15px;
+}
+.add-note31 button {
+  width: 80px;
+  height: 35px;
+  padding: 8px 20px;
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  float: right;
+  margin-right: 15px;
+}
+.add-note3 button:hover {
+  background-color: whitesmoke;
+}
+.add-note31 button:hover {
+  background-color: whitesmoke;
+}
+.add-note3 .my-Btn-img {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+}
+.add-note31 .my-Btn-img {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+}
+.add-note3 .my-Btn-img:hover {
+  background-color: whitesmoke;
+}
+.add-note31 .my-Btn-img:hover {
+  background-color: whitesmoke;
+}
+.add-note3 #add-note-palette:hover .myPalette {
+  display: flex;
+}
+
+/*************************************************** Card Here *********************************************/
+#card {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 800px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/******************************************************************************************************************************/
+.moreBtn {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 16px;
-  width: 250px;
-  background-color: #fff;
-  border-color: #e0e0e0;
-  border: 1px solid #d3d3d3;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
-  
-  
 }
 
-.note:hover {
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
-    0 1px 3px 1px rgba(60, 64, 67, 0.149);
-}
-
-.note-title {
-  padding-top: 12px;
-  letter-spacing: 0.00625em;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  min-height: 38px;
-  padding: 16px 16px 0 16px;
-  transition: background-color 0.218s ease-in;
-  box-sizing: border-box;
-  font-variant-ligatures: none;
-  outline: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.note-text {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  min-height: 30px;
-  letter-spacing: 0.01428571em;
-  padding: 4px 16px 12px 16px;
-  box-sizing: border-box;
-  font-variant-ligatures: none;
-  outline: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.toolbar {
-  opacity: 0;
-  flex-direction: row-reverse;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.54);
+.moreBtn:hover .dropdown {
   display: flex;
-  font-size: 12px;
-  line-height: 26px;
-  margin: 4px 0;
-  position: relative;
+}
+.moreBtn:hover .note-img {
+  display: flex;
 }
 
-.toolbar:hover {
-  opacity: 1;
+.my-note {
+  /* flex-direction: row;
+    display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  flex-direction: column;
+  width: 240px;
+  min-height: 120px;
+  border: 2px solid whitesmoke;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  /* flex-direction: row;
+    display: flex; */
+}
+.my-note .title-div, .my-note .note-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: "Noto Sans", sans-serif;
+  text-decoration-color: gainsboro;
+  min-height: 40px;
+  padding: 4px 16px 12px;
+  overflow-wrap: anywhere;
+  outline: none;
+}
+.my-note .title-div {
+  font-size: 16px;
+}
+.my-note .note-div {
+  font-size: 18px;
+}
+.my-note .btns-div {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.my-note .note-btns {
+  display: flex;
+  align-self: center;
+  width: 34px;
+  height: 34px;
+}
+.my-note .note-img {
+  display: none;
+  margin: 8px;
+  border-radius: 50%;
+}
+.my-note .note-img:hover {
+  background-color: #e0e0e0;
+}
+.my-note .dropdown {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  font-size: 14px;
+  padding: 5px 5px 5px 10px;
+  width: 160px;
+  height: 180px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  background-color: #fff;
+}
+.dropdown1 {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  font-size: 14px;
+  padding: 5px 5px 5px 10px;
+  width: 300px;
+  height: 600px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  background-color: #fff;
+}
+.my-note .dropdown .dropdown-item {
+  font-family: "Noto Sans", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 160px;
+  height: 30px;
+}
+.dropdown1 .dropdown-item1 {
+  font-family: "Noto Sans", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 160px;
+  height: 30px;
+}
+.my-note .dropdown .dropdown-item:hover {
+  background-color: whitesmoke;
+}
+.dropdown1 .dropdown-item1:hover {
+  background-color: whitesmoke;
 }
 
+.my-note:hover .note-img {
+  display: flex;
+}
+
+/*************************************************** Color Palette ******************************************************/
+.myPalette {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  z-index: 1;
+  min-width: 100px;
+  min-height: 100px;
+  position: absolute;
+  border-radius: 8px;
+}
+.myPalette1 {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  z-index: 1;
+  min-width: 100px;
+  min-height: 100px;
+  position: absolute;
+  border-radius: 8px;
+}
+.myPalette .color-palette {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  border: 1px solid gainsboro;
+  height: 35px;
+  border-radius: 50%;
+}
+.myPalette1 .color-palette {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  border: 1px solid gainsboro;
+  height: 35px;
+  border-radius: 50%;
+}
+
+#palette:hover {
+  display: flex;
+}
+#palette1:hover {
+  display: flex;
+}
+#palette:hover .myPalette {
+  display: flex;
+}
+#palette:hover .myPalette1 {
+  display: flex;
+}
+#palette1:hover .myPalette {
+  display: flex;
+}
+#palette1:hover .myPalette1 {
+  display: flex;
+}
+
+/*************************************************** Edit Note ******************************************************/
+.edit-note {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  margin: auto;
+  height: 180px;
+  border: 1px solid transparent;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px #e0e0e0;
+}
+
+.edit {
+  width: 600px;
+  height: 45px;
+  font-family: "Noto Sans", sans-serif;
+  text-decoration-color: gainsboro;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding-left: 12px;
+}
+
+.edit-sub-note2 {
+  display: flex;
+  border: none;
+  outline: none;
+}
+
+
+.edit-note3 {
+  display: flex;
+  flex-direction: row;
+}
+.edit-note3 .btns {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+}
+.edit-note3 .btns .myBtns {
+  width: 34px;
+  height: 34px;
+  margin: 0 8px;
+}
+.edit-note3 button {
+  width: 80px;
+  height: 35px;
+  padding: 8px 20px;
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  float: right;
+  margin-right: 15px;
+}
+.edit-note3 button:hover {
+  background-color: whitesmoke;
+}
+.edit-note3 .my-Btn-img {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+}
+.edit-note3 .my-Btn-img:hover {
+  background-color: whitesmoke;
+}
+
+/******************************************************************************************************************************/
+@media only screen and (max-width: 900px) {
+  .searchBar {
+    width: 100%;
+  }
+
+  .subnav-one {
+    width: 20%;
+  }
+
+  .subnav-two {
+    width: 65%;
+  }
+
+  .note {
+    width: 550px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .note {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .subnav-one {
+    width: 24%;
+  }
+
+  .subnav-two {
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .subnav-one {
+    width: 30%;
+  }
+
+  .subnav-two {
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .subnav-one {
+    width: 30%;
+  }
+
+  .subnav-two {
+    width: 50%;
+  }
+
+  .menu-icon {
+    margin-left: 20%;
+  }
+
+  .keep-txt {
+    padding-left: 5px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .subnav-one {
+    width: 40%;
+  }
+
+  .menu-icon {
+    margin-left: 10%;
+  }
+
+  .subnav-two {
+    width: 38%;
+  }
+
+  .keep-txt {
+    padding-left: 5px;
+  }
+
+  .notes, .remainder, .label, .archive, .trash {
+    z-index: 1;
+  }
+
+  .myDrawer {
+    z-index: 1;
+  }
+
+  .note {
+    width: 200px;
+  }
+
+  .add-note {
+    width: 200px;
+  }
+
+  .btns {
+    width: 200px;
+  }
+  .btns .myBtns {
+    width: 16px;
+  }
+
+  .add-note3 button {
+    width: 50px;
+    padding: 8px 5px;
+  }
+}
+
+  .circle {
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: 1px solid black;
+    color:black;
+    text-align: center;
+    background: rgb(167, 163, 163);
+    display: none;
+  }
+  .circle1 {
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: 1px solid black;
+    color:black;
+    text-align: center;
+    background: rgb(167, 163, 163);
+    /* display: none; */
+  }
+  .addcolab{
+    flex-direction: row;
+    display: flex;
+  }
+  .addcolab3{
+    flex-direction: row;
+    display: flex;
+  }
+  .circle3 {
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: 1px solid black;
+    color:black;
+    text-align: center;
+    background: rgb(167, 163, 163);
+    /* display: none;  */
+  }
+  .block{
+      font-family: fangsong;
+     font-size: 25px;
+     text-align: center;
+     background-color: gray;
+     
+  }
+  .block button{
+    text-align: left;
+    border: none;
+    background-color: none;
+    background-color: none;
+    font-size: 20px;
+    background-color: transparent;
+    
+}
+  
+  /* p{
+    color: white;
+  } */
+
+
+/*collaborator */
+
+/* content, .block, .inline, .inline-block {
+	outline: 1px solid rgb(199, 194, 194);
+}
+content {
+  width: 30%;
+  display: none; */
+ /* margin: auto;*/
+  /* background-color: white; */
+  /*font-size:25px;*/
+  /* color:black;
+  z-index: 1; */
+
+/* }
+.block {
+  display: block;
+  font-size: 25px;
+  padding: 10px; */
+  /*margin: 20px; /* remove this margin to see how inline paragraphs can bleed into block paragraphs */
+  /* background-color:rgb(235, 227, 227);
+  
+} */
+
+/* .inline-block {
+  display: none;
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  color: #fff;
+  margin: none;
+}
+button{
+align-self: right;
+  padding:2%;
+  color:black;
+  background-color:rgb(235, 227, 227);
+  border: blue;
+} */
