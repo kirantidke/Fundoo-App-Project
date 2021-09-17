@@ -4,7 +4,8 @@ var searchUserList=[];
 var colabData=[];
 var displayCollab=[];
 var searchUserList1=[];
-
+var updateCollab=[];
+var searchUserList2=[];
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log(localStorage.getItem("token"))
     // let data = localStorage.getItem("token");
@@ -156,7 +157,7 @@ function closeNote(myid) {
 //}
 
 
-/*******************collaboration**********/
+/*******************collaborators**********/
 function addcollaborator() {
     //alert('add');
     // console.log("hii");
@@ -170,11 +171,14 @@ function addcollaboratorDisplay() {
     console.log(document.getElementById('myModal-colab').style)
     document.getElementById('myModal-colab').style.display = "block";
     document.getElementById("para-login1").innerHTML = localStorage.getItem("username");
-
-
-
 }
-
+function addcollaboratorUpdate() {
+    //alert('add');
+    // console.log("hii");
+    console.log(document.getElementById('myModal-colabupdate').style)
+    document.getElementById('myModal-colabupdate').style.display = "block";
+    document.getElementById("para-login2").innerHTML = localStorage.getItem("username");
+}
 
 
 /****************display data*************/
@@ -331,8 +335,7 @@ function commonNotes(data, noteString) {
             <div class="noteFields" onclick="openNote('${element.title}','${element.description}','${element.id}')" style="background-color:${element.color}">
                 <div class="title-div" id="card-title">${title}</div>
                 <div class="note-div" id="card-note">${description}</div>
-                <div class="addcolab3" id="addcolab3">
-                </div>`
+                <div class="addcolab3" id="addcolab3"><div class="circle3">K</div></div>`
 
                 if(element.collaborators.length>0){
                temp+= `<div>`+temp1+`</div>`
@@ -409,7 +412,7 @@ function openNote(title, description, id) {
     document.getElementById("edit-note-btns1").innerHTML = 
     `<div class="btns">
       <div class="myBtns"><img src="../assets/bell_icon.png" class="my-Btn-img"></div>
-      <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaboratorDisplay()" class="my-Btn-img"></div>
+      <div class="myBtns"><img src="../assets/collaborate.svg" onclick="addcollaboratorUpdate()" class="my-Btn-img"></div>
       <div class="myBtns" id="palette1"><img src="../assets/color.svg" class="my-Btn-img">
        <div class="myPalette">
       <div class="sub-one" id="change-color">
@@ -589,62 +592,113 @@ function selectemail(list){
         // $(".add-note3").css('display', 'block');
     }
 
-    //-------------collaborator for display note------------//
-    // function searchEmail1() {
-    //     $(".dropdown1").css('display', 'block');
-    //     let email = document.getElementById("searchemail");
+    function searchEmailDisplay() {
+        $(".dropdown2").css('display', 'block');
+        let email = document.getElementById("searchemail-display");
         //document.getElementById('.dropdown1').style.display = "block";
       
     
-    //     let data = {
-    //         "searchWord": email.value
-    //       };
-    //         if(email.value.length > 3){
-    //     search(data)
-    //        }
-    // }
-    
-    // function selectemail1(list){
-    //     searchUserList1=list1;
-    //     $(".dropdown1").css('display', 'block');
+        let data = {
+            "searchWord": email.value
+          };
+            if(email.value.length > 3){
+            search(data)
+           }
+    }
+    function selectemaildisplay(list1){
+        searchUserList1=list1;
+        $(".dropdown2-display").css('display', 'block');
         // document.getElementById("searchemail").value=searchUserList=[];
-        // console.log(list1)
-        // let temp = ""
-        // for (let i = 0; i < list.length; i++) {
-        //     console.log(list1[i].email)
-        //     temp += ` <li style="list-style-type:none">
-        //     <div id=` + i + ` onclick = "selectItem1(id)">` + list1[i].email+ `</div></li>`;
+        console.log(list1.value)
+        let temp = ""
+        for (let i = 0; i < list1.length; i++) {
+            console.log(list1[i].email)
+            temp += ` <li style="list-style-type:none">
+            <div id=` + i + ` onclick = "selectItemDisplay(id)">` + list1[i].email+ `</div></li>`;
             
-        // }
-        // console.log(temp)
-        // document.getElementById("mail-list").innerHTML = temp;
+        }
+        console.log(temp)
+        document.getElementById("mail-list-display").innerHTML = temp;
         
         
        
-    //   }
-    //   function selectItem1(i){
-    //  document.querySelector('#searchemail').value = searchUserList1[i].email;
-    //     colabData.push(searchUserList1[i])
-    //     $(".dropdown1").css('display', 'none');
-    //   }
+      }
+    function selectItemDisplay(i){
+        document.querySelector('#searchemail-display').value = searchUserList1[i].email;
+        displayCollab.push(searchUserList1[i])
+           $(".dropdown2").css('display', 'none');
+         }
+         
+      function addCollabToDisplay(){
       
-
-    function addCollabToDisplay(){
-       
-        //document.getElementById("addcolab").value;
          $(".modal-colab").css('display', 'none');
        let temp=""
               for(i=0;i<displayCollab.length;i++){
                  console.log(displayCollab[i].email)
-                 temp+=`<div class="circle3" id="circle-colab3">`+displayCollab[i].email.charAt(0)+`</div>
-                       <div>`
+                 temp+=`<div class="circle3">`+displayCollab[i].email.charAt(0)+`</div>`
               }document.getElementById("addcolab3").innerHTML=temp;
              
              $(".circle3").css('display', 'block');
            
          }
+        // function btnDisplay(){
+        //     document.getElementById("displaybtns").innerHTML = ` <button type="button" onclick="alert('canceled')">Cancel</button>
+        //     <button type="button" onclick="addCollabToDisplay()">save</button>`
+        // }
+        // function btnUpdate(){
+        //     document.getElementById("updatebtns").innerHTML = ` <button type="button" onclick="alert('canceled')">Cancel</button>
+        //     <button type="button" onclick="addCollabToDisplay()">save</button>`
+        // }
    
-    
+    //--------------add collab in update note--------------/
+
+    function searchEmailUpdate() {
+        $(".dropdown3").css('display', 'block');
+        let email = document.getElementById("searchemail-update");
+        //document.getElementById('.dropdown1').style.display = "block";
+        let data = {
+            "searchWord": email.value
+          };
+            if(email.value.length > 3){
+            search(data)
+           }
+    }
+    function selectemailupdate(list2){
+        searchUserList2=list2;
+        $(".dropdown3").css('display', 'block');
+        // document.getElementById("searchemail").value=searchUserList=[];
+        console.log(list2.value)
+        let temp = ""
+        for (let i = 0; i < list2.length; i++) {
+            console.log(list2[i].email)
+            temp += ` <li style="list-style-type:none">
+            <div id=` + i + ` onclick = "selectItemUpdate(id)">` + list2[i].email+ `</div></li>`;
+            
+        }
+        console.log(temp)
+        document.getElementById("mail-list-update").innerHTML = temp;
+        
+        
+       
+      }
+    // function selectItemUpdate(i){
+    //     document.querySelector('#searchemail-update').value = searchUserList1[i].email;
+    //     displayCollab.push(searchUserList1[i])
+    //        $(".dropdown3").css('display', 'none');
+    //      }
+         
+    //   function addCollabToDisplay(){
+      
+    //      $(".modal-colab").css('display', 'none');
+    //    let temp=""
+    //           for(i=0;i<displayCollab.length;i++){
+    //              console.log(displayCollab[i].email)
+    //              temp+=`<div class="circle3">`+displayCollab[i].email.charAt(0)+`</div>`
+    //           }document.getElementById("addcolab3").innerHTML=temp;
+             
+    //          $(".circle3").css('display', 'block');
+           
+    //      }
     
 
 //   function displayArchieveNotes(displaynote){
