@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/dashboard copy.css">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
     <link rel="stylesheet" href="../CSS/popup.css">
 
     <title>Dashboard</title>
@@ -43,7 +43,7 @@
     <div class="myDrawer">
         <div class="notes drawer">
             <img src="../assets/bulb_icon.png" alt="">
-            <span class="drawer-span">Notes</span>
+            <span class="drawer-span" onclick="getNote()">Notes</span>
         </div>
         <div class="remainder drawer">
             <img src="../assets/bell_icon.png" alt=""><span class="drawer-span">Remainder</span>
@@ -51,10 +51,10 @@
         <div class="label drawer"><img src="../assets/edit_icon.png" alt="">
             <span class="drawer-span">Edit labels</span>
         </div>
-        <div class="archive drawer"><img src="../assets/archive_icon.png" alt="" onclick="displayArchieveNote()"><span
+        <div class="archive drawer"><img src="../assets/archive_icon.png" alt="" onclick="getArchnote()"><span
                 class="drawer-span">Archives</span>
         </div>
-        <div class="trash drawer"><img src="../assets/trash_icon.png" alt="" onclick="displayTrashNotes()"><span
+        <div class="trash drawer"><img src="../assets/trash_icon.png" alt="" onclick="getTrashnote()"><span
                 class="drawer-span">Trash</span>
         </div>
     </div>
@@ -126,17 +126,18 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <content class="collab" id="collab-content">
-                    <p class="block">Collaboraters</p>
+                <div class="collab" id="collab-content">
+                    <p class="block1">Collaboraters</p>
+                    <hr width="440px;" color="white" size="1">
                     <div class="default-email" id="login-email">
                         <p class="in">
-                        <div id="para-login"></div>
+                        <div id="para-login" style="color: white;"></div>
                         </p>
                         <p class="in">
                             <img src="../assets/person-circle.svg" class="note-img" width="30">
                             </img>
-                            <input type="text" id="searchemail" name="fname" value="" autocomplete="off"
-                                style="border: none;" oninput="searchEmail()">
+                            <input type="text" id="searchemail" name="fname" value="" autocomplete="off" placeholder="Person or email to shair with"
+                                style="border: none" style="background-color: gray;" oninput="searchEmail()">
                         <div class="email-list">
                             <div class="dropdown1">
                                 <!--<select>-->
@@ -145,27 +146,21 @@
                                 </div>
                                 <div id="colab-list"></div>
                             </div>
-                            <!-- </select> -->
                         </div>
                     </div>
-
                     </p>
-
-                    <p class="block">
-                        <button type="button" onclick="alert('canceled')">Cancel</button>
-                        <button type="button" onclick="addEmailToCollab()">save</button>
-                    </p>
+                </div>
+                <!-- <hr width="440px;" color="rgba(65, 62, 62, 0.4)" size="2"> -->
+                <div class="block" style="width:450px;" >
+                    <button type="button" onclick="cancelWindow()">Cancel</button>
+                    <button type="button" onclick="addEmailToCollab()">save</button>
+                </div>
             </div>
-            </content>
-
+           
         </div>
-        <div class="edit-note3" id="edit-note-btns">
-
-        </div>
-
-    </div>
-    <!---------------collaborator for update note---------->
-    <div id="myModal-colab" class="modal-colab">
+        <div class="edit-note3" id="edit-note-btns"></div>
+        <!---------------collaborator for display note---------->
+        <!-- <div id="myModal-colab" class="modal-colab">
         <div class="modal-content">
             <span class="close3">&times;</span>
             <content class="collab" id="collab-content">
@@ -177,25 +172,24 @@
                     <p class="in">
                         <img src="../assets/person-circle.svg" class="note-img" width="30">
                         </img>
-                        <input type="text" id="searchemail" name="fname" value="" autocomplete="off"
-                            style="border: none;" oninput="searchEmail()">
+                        <input type="text" id="searchemail-display" name="fname" value="" autocomplete="off"
+                            style="border: none;" oninput="searchEmailDisplay()">
                     <div class="email-list">
-                        <div class="dropdown1">
-                            <!--<select>-->
-                            <div class="dropdown-item">
-                                <ul class="dropdown-menu" id="mail-list"></ul>
+                        <div class="dropdown2" id="colab-display">
+                            
+                            <div class="dropdown-item2">
+                                <ul class="dropdown-menu" id="mail-list-display"></ul>
                             </div>
                             <div id="colab-list"></div>
                         </div>
-                        <!-- </select> -->
+                       
                     </div>
                 </div>
 
                 </p>
-
-                <p class="block">
+                <p class="block" id="displaybtns">
                     <button type="button" onclick="alert('canceled')">Cancel</button>
-                    <button type="button" onclick="addCollabToDisplay()">save</button>
+                <button type="button" onclick="addCollabToDisplay()">save</button>
                 </p>
         </div>
         </content>
@@ -206,7 +200,51 @@
     </div>
 
 </div>
+ -->
+<!-------------------collab for update note------------->
 
+        <div id="myModal-colabupdate" class="modal-colabupdate">
+            <div class="modal-content">
+                <span class="close3">&times;</span>
+                <content class="collab" id="collab-content">
+                    <p class="block">Collaboraters</p>
+                    <hr width="440px;" color="white" size="1">
+                    <div class="default-email" id="login-email">
+                        <p class="in">
+                        <div id="para-login2"></div>
+                        </p>
+                        <p class="in">
+                            <img src="../assets/person-circle.svg" class="note-img" width="30">
+                            </img>
+                            <input type="text" id="searchemail-update" name="fname" value="" autocomplete="off"
+                                style="border: none;" oninput="searchEmailUpdate()">
+                        <div class="email-list">
+                            <div class="dropdown3">
+                           
+                                <div class="dropdown-item3">
+                                    <ul class="dropdown-menu" id="mail-list-update"></ul>
+                                </div>
+                                <div id="colab-list"></div>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    </p>
+
+                    <p class="block" id="updatebtns">
+                        <button type="button" onclick="cancelWindow();">Cancel</button>
+                        <button type="button" onclick="addCollabToDisplay()">save</button>
+                    </p>
+            </div>
+            </content>
+
+        </div>
+        <div class="edit-note3" id="edit-note-btns">
+
+        </div>
+
+    </div>
 
 
     <!------------------------Card ---------------------->
@@ -219,7 +257,7 @@
 
     <div id="myModal1" class="modal">
         <div class="modal-content" id="modal2">
-            <span class="close1">&times;</span>
+            <span class="close11">&times;</span>
             <content class="collab" id="collab-content1">
                 <p class="block"></p>
                 <div class="default-email" id="login-email1">
@@ -233,9 +271,9 @@
                             +selectedItem.title><br><br>
                         <input type="text" id="note1" + selectedItem.description="fname" style="border: none"
                             placeholder="Take a note">
-                            <div class="addcolab" id="addcolab">
-                                 <div class="circle3" id="circle-colab">K</div>
-                            </div>
+                        <div class="addcolab" id="addcolab">
+                            <div class="circle3" id="circle-colab">K</div>
+                        </div>
                         <div class="edit-note3" id="edit-note-btns1"></div>
                         </p>
                     </div>

@@ -8,7 +8,6 @@ var updateCollab = [];
 var searchUserList2 = [];
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log(localStorage.getItem("token"))
-    // let data = localStorage.getItem("token");
     getNote();
 })
 
@@ -277,7 +276,7 @@ function commonNotes(data, noteString) {
                 <div class="modal-content">
                     <span class="close3">&times;</span>
                     <content class="collab" id="collab-content">
-                        <p class="block">Collaboraters</p>
+                        <p class="block1">Collaboraters</p>
                         <div class="default-email" id="login-email">
                             <p class="in">
                             <div id="para-login1"></div>
@@ -548,17 +547,18 @@ function selectItemDisplay(i) {
     displayCollab = searchUserList1[i];
     $(".dropdown2").css('display', 'none');
 }
-function addCollabToDisplay() {
-    $(".modal-colab").css('display', 'none');
-    let temp = ""
-    for (i = 0; i < displayCollab.length; i++) {
-        console.log(displayCollab[i].email)
-        temp += `<div class="circle3">`+K+ `</div>`
-    } document.getElementById("addcolab3").innerHTML = temp;
-    $(".circle3").css('display', 'block');
-}
+// function addCollabToDisplay() {
+//     $(".modal-colab").css('display', 'none');
+//     let temp = ""
+//     for (i = 0; i < displayCollab.length; i++) {
+//         console.log(displayCollab[i].email)
+//         temp += `<div class="circle3">`+K+ `</div>`
+//     } document.getElementById("addcolab3").innerHTML = temp;
+//     $(".circle3").css('display', 'block');
+// }
 
 function addCollabToDisplayNotes(id) {
+    console.log(id)
     $(".dropdown2").css('display', 'block');
     let email = document.getElementById("searchemail-display");
     //    let data = {
@@ -568,6 +568,7 @@ function addCollabToDisplayNotes(id) {
 
     searchDisplay(displayCollab,id)
     $(".dropdown2").css('display', 'none');
+    $(".modal-content").css('display', 'none');
 }
 
 //--------------add collab in update note--------------/
@@ -597,22 +598,20 @@ function selectemailupdate(list2) {
 }
 function selectItemUpdate(i) {
     document.querySelector('#searchemail-update').value = searchUserList1[i].email;
-    displayCollab.push(searchUserList1[i])
+    displayCollab=searchUserList1
     $(".dropdown3").css('display', 'none');
 }
 
-function addCollabToUpdate() {
+function addCollabToUpdate(id) {
 
     $(".modal-colabupdate").css('display', 'none');
-    //    let temp=""
-    //           for(i=0;i<displayCollab.length;i++){
-    //              console.log(displayCollab[i].email)
-    //              temp+=`<div class="circle3">`+displayCollab[i].email.charAt(0)+`</div>`
-    //           }document.getElementById("addcolab3").innerHTML=temp;
 
-    $(".circle3").css('display', 'block');
-
+    searchDisplay(displayCollab,id)
+    
+    $(".dropdown3").css('display', 'none');
+    $(".modal-content").css('display', 'none');
 }
+
 function displayTrashNote(data, noteString) {
     let temp = "";
     let note = document.getElementById("card");
@@ -646,6 +645,7 @@ function displayTrashNote(data, noteString) {
     });
     note.innerHTML = temp;
 }
+//----------------------cancel button------------------//
 function cancelWindow(){
     $(".modal-content").css('display', 'none');
 }
